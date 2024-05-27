@@ -10,12 +10,37 @@ const carousel = new bootstrap.Carousel(myCarousel, {
 // Funcionalidade de armazenar dados
 const nomeInput = document.getElementById("nome");
 const crmInput = document.getElementById("crm");
-const especialidadeInput = document.getElementById("especialidade");
+const especialidadeSelect = document.getElementById("especialidade");
 const telefoneInput = document.getElementById("telefone");
 const emailInput = document.getElementById("email");
 const datanascimentoInput = document.getElementById("data_nascimento");
 const senhaInput = document.getElementById("senha");
 const form = document.querySelector("form");
+let especialidadeText = null;
+
+//especialidades nao pode ser input
+let especialidadesJSON = getEspecialidades("assets/json/especialidades.json")
+.then((value) => {
+    let especialidades = value.especialidades;
+    let tamanho = Object.keys(value.especialidades).length;
+
+    for (let i = 0; i < tamanho; i++){
+        createCustomOptions(especialidadeSelect, especialidades[i].id, especialidades[i].nome);
+    }
+})
+
+especialidadeSelect.addEventListener("click", () => {
+    let options = especialidadeSelect.querySelectorAll("option");
+    let quantidadeOptions = options.length;
+
+    if (typeof(quantidadeOptions) === "undefined" || quantidadeOptions < 2)
+        console.log("Erro ao carregar o arquivo .json");
+})
+
+especialidadeSelect.addEventListener("change", () => {
+    especialidadeText = especialidadeSelect.options[especialidadeSelect.selectedIndex].text;
+    console.log(especialidadeText);
+})
 
 function armazenaDados() {
 
@@ -23,7 +48,9 @@ function armazenaDados() {
   departamento.id = obterID();
   departamento.nome = nomeInput.value.trim();
   departamento.crm = crmInput.value.trim();
-  departamento.especialidade = especialidadeInput.value.trim();
+
+  departamento.especialidade = especialidadeText;
+  
   departamento.telefone = telefoneInput.value.trim();
   departamento.email = emailInput.value.trim();
   departamento.senha = senhaInput.value.trim();

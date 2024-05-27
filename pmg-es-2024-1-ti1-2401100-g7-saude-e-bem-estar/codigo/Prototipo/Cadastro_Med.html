@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <title>Santé</title>
+</head>
+<body>
+    
+    <Header>
+        <div class="header">
+          <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+          <div class="header-right">
+            <a href="#home">Meu Caso</a>
+            <a href="#contact">Quem Somos</a>
+            <button href="#" type="button" class="btn-verde">Cadastrar</button>
+            <button href="#" type="button" class="btn-verde">Login</button>
+          </div>
+        </div>
+    </Header>
+
+    <br><div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form>
+          <h2 class="d-flex justify-content-center">Cadastro de Médico</h2>
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Matheus" required>
+          </div>
+          <div class="form-group">
+            <label for="crm">CRM:</label>
+            <input type="text" class="form-control" id="crm" name="crm" placeholder="000000/SP" required>
+          </div>
+          <div class="form-group">
+            <label for="especialidade">Especialidade:</label>
+            <input type="text" class="form-control" id="especialidade" name="especialidade" placeholder="Cardiologista" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 0 0000-000" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com"required>
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="senha" name="Senha" placeholder="******" required>
+          </div>
+          <div class="form-group">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+          </div><br>
+          <div class="d-flex justify-content-center">
+            <a href="#" onclick="armazenaDados()"><button type="submit" class="btn btn-primary">Cadastrar</button></a>
+            <button onclick="window.location.href='index.html'" class="btn btn-info">Voltar</button>
+          </div>
+          <br><a href="Login_Med.html" class="d-flex justify-content-center link" >Já tenho uma conta</a>
+        </form>
+      </div>
+
+    <footer>
+        <div class="footer ">
+          <div class="row g-0 text-center">
+  
+            <div class="col-6 col-md-4 p-2">
+              <h5>Seja Nosso cliente</h5>
+              <p>Cadastre-se</p>
+            </div>
+            <div class="col-6 col-md-4 p-2">
+              <h5>Fale com a gente</h5>
+              <p>Enviar Mensagem</p>
+              <p>Suporte (31) 9 9999-9999</p>
+              <p>Reclame aqui</p>
+            </div>
+            <div class="col-6 col-md-4 p-2">
+              <h5>Criadores</h5>
+              <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

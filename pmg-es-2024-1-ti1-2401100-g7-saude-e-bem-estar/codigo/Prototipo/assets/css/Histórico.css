@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+}
+header {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: seagreen;
+  color: #f7eded;
+}
+footer {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: seagreen;
+}
+footer p  {
+  color: white;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+
+#healthRecords, #addRecordForm {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#recordsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}

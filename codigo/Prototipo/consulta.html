@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consultas</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/consulta.css">
+    <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+    
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+            <div class="header-right">
+                <a href="#home">Meu Caso</a>
+                <a href="#contact">Quem Somos</a>
+            </div>
+    </header>
+
+    <main class="main-container">
+        <div class="site border border-dark rounded consulta-container">
+            <h1>Marcar sua consulta</h1>
+            <div class="mt-2">
+                <label for="nome-paciente">Digite o nome do paciente:</label>
+                <input type="text" id="nome-paciente" placeholder="Ex: João da Silva">
+            </div>
+            <div class="mt-2">
+                <label for="moedaOrigem">Especialidade do médico</label>
+                <select id="especialidades">
+                    <option selected hidden>Escolha uma especialidade</option>
+                </select>
+            </div>
+            <div class="mt-2">
+                <label for="horarios">Horários para consulta</label>
+                <select name="" id="data-consulta">
+                    <option selected hidden>Escolha uma data</option>
+                </select>
+            </div>
+            <div class="mt-2">
+                <label for="horarios">Horários para consulta</label>
+                <select name="" id="horario-consulta">
+                    <option selected hidden>Escolha um horário</option>
+                </select>
+            </div>
+            <button onclick="converter()" class="btn btn-primary mt-2">Converter</button>
+            <div id="resultado"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="row g-0 text-center">
+
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Seja Nosso cliente</h5>
+                    <p>Cadastre-se</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Fale com a gente</h5>
+                    <p>Enviar Mensagem</p>
+                    <p>Suporte (31) 9 9999-9999</p>
+                    <p>Reclame aqui</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Criadores</h5>
+                    <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/santelib.js"></script>
+    <script src="assets/js/consulta.js"></script>
+</body>
+
+</html>

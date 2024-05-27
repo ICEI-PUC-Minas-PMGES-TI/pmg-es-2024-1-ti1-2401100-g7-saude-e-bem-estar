@@ -15,10 +15,6 @@ body {
   color: white;
 }
 
-
-#img123{
-  height: 40px;
-}
 .header a{
   float: left;
   text-align: center;
@@ -141,13 +137,7 @@ body {
   background-color: #3685F5;
   color: white;
   bottom: 0;
-  margin-top: 200px;
-}
-
-
-/*footer padrao criado para fixar ao fim das paginas*/
-footer{
-  height: 100px;
+  margin-top: 20px;
 }
 /*Fim footer*/
 
@@ -164,5 +154,3 @@ footer{
   cursor: pointer;
   text-align: center;
 }
-
-

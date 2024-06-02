@@ -109,6 +109,16 @@ document.addEventListener('DOMContentLoaded', function() {
             GetDaysCalendar(new Date(event.date).getMonth(), new Date(event.date).getFullYear());
         };
     }
+
+// Funcionalidade de deletar o evento do local storage
+    window.deleteEvent = function(index) {
+        events.splice(index, 1);
+        localStorage.setItem('events', JSON.stringify(events));
+        displayEvents();
+        const now = new Date();
+        GetDaysCalendar(now.getMonth(), now.getFullYear());
+    }
+
 // Funcionalidade de colocar uma lista com os eventos salvos na tela com HTML
     function displayEvents() {
         eventList.innerHTML = '';

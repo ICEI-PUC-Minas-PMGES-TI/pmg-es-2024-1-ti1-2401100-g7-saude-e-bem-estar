@@ -172,3 +172,32 @@ const mostrarCampoOutro = (selectElement, outroCampoId) => {
         outroCampo.style.display = 'none';
     }
 };
+
+const displayPatientProfile = () => {
+    const storedData = getStoredData(); // Recupera os dados armazenados
+
+    // Verifica se há dados cadastrados
+    if (storedData.length === 0) {
+        alert('Você ainda não cadastrou suas informações.');
+        return;
+    }
+
+    // Obtém os dados do último paciente cadastrado (supondo que seja o mais recente)
+    const latestPatientData = storedData[storedData.length - 1];
+
+    // Exibe os dados na página de perfil
+    document.getElementById('nome').textContent = latestPatientData.nome;
+    document.getElementById('data-nascimento').textContent = latestPatientData.dataNascimento;
+    document.getElementById('doencas-cronicas').textContent = latestPatientData.historicoFamiliar;
+    document.getElementById('medicamentos').textContent = latestPatientData.medicamentos_atuais;
+    document.getElementById('alergias').textContent = latestPatientData.historico_alergias;
+    document.getElementById('habitos-exercicio').textContent = latestPatientData.atividade_fisica;
+    document.getElementById('consumo-alcool').textContent = latestPatientData.habitos;
+    document.getElementById('consumo-tabaco').textContent = ''; // Aqui você pode adicionar a lógica para exibir o consumo de tabaco, se necessário
+};
+
+// Chama a função para exibir o perfil do paciente após o carregamento da página
+document.addEventListener('DOMContentLoaded', () => {
+    displayPatientProfile();
+});
+

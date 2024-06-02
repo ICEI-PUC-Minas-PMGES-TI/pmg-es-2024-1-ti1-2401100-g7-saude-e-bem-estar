@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+    <title>Santé</title>
+</head>
+<body>
+  <!-- Cabeçalho do site -->
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo"> Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+      <div class="header-right">
+        <a href="#home">Meu Caso</a>
+        <a href="#contact">Quem Somos</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Santé</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="PerguntasAoCadastrar.html">Cadastrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PerfilPaciente.html">Perfil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+    
+<main class="container mt-5">
+    <h1>Perfil do Paciente</h1>
+    <div id="perfil-paciente">
+        <h2>Informações Pessoais</h2>
+        <p><strong>Nome:</strong> <span id="nome"></span></p>
+        <p><strong>Data de Nascimento:</strong> <span id="data-nascimento"></span></p>
+        
+        <h2>Histórico Médico</h2>
+        <p><strong>Doenças Crônicas:</strong> <span id="doencas-cronicas"></span></p>
+        <p><strong>Medicamentos:</strong> <span id="medicamentos"></span></p>
+        <p><strong>Alergias:</strong> <span id="alergias"></span></p>
+        
+        <h2>Estilo de Vida</h2>
+        <p><strong>Hábitos de Exercício:</strong> <span id="habitos-exercicio"></span></p>
+        <p><strong>Consumo de Álcool:</strong> <span id="consumo-alcool"></span></p>
+        <p><strong>Consumo de Tabaco:</strong> <span id="consumo-tabaco"></span></p>
+    </div>
+</main>
+    
+<!--Footer das informações do site -->
+<footer>
+    <div class="footer">
+      <div class="row g-0 text-center">
+
+        <div class="col-6 col-md-4 p-2">
+          <h5>Seja Nosso cliente</h5>
+          <p>Cadastre-se</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Fale com a gente</h5>
+          <p>Enviar Mensagem</p>
+          <p>Suporte (31) 9 9999-9999</p>
+          <p>Reclame aqui</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Criadores</h5>
+          <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/perguntasPac.js"></script>
+</body>
+</html>

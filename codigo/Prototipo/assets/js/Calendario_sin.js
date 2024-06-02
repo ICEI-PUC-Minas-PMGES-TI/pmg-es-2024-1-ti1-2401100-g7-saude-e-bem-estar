@@ -84,7 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
         events.push({ date: date.toISOString().split('T')[0], title: title });
         localStorage.setItem('events', JSON.stringify(events));
         GetDaysCalendar(date.getMonth(), date.getFullYear());
-
+        displayEvents();
+    }
+// Funcionalidade de colocar uma lista com os eventos salvos na tela com HTML
+    function displayEvents() {
+        eventList.innerHTML = '';
+        events.forEach((event, index) => {
+            let li = document.createElement('li');
+            li.innerHTML = `Data: ${event.date}, Título: ${event.title} 
+                            <button onclick="editEvent(${index})" class="btn btn-outline-primary">Editar</button>
+                            <button onclick="deleteEvent(${index})" class="btn btn-outline-danger">Excluir</button>`;
+            eventList.appendChild(li);
+        });
     }
 
 
@@ -92,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let mes = now.getMonth();
     let ano = now.getFullYear();
     GetDaysCalendar(mes, ano);
-
+    displayEvents();
 
     const botao_proximo = document.getElementById('btn-prev');
     const botao_anterior = document.getElementById('btn-ant');

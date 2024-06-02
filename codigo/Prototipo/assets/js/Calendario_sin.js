@@ -86,6 +86,29 @@ document.addEventListener('DOMContentLoaded', function() {
         GetDaysCalendar(date.getMonth(), date.getFullYear());
         displayEvents();
     }
+
+// Funcionalidade de editar o evento no local storage
+    window.editEvent = function(index) {
+        const event = events[index];
+        const modal = document.getElementById('modal');
+        const eventDateInput = document.getElementById('eventDate');
+        const eventTitleInput = document.getElementById('eventTitle');
+        const eventForm = document.getElementById('eventForm');
+
+        eventDateInput.value = new Date(event.date).toDateString();
+        eventTitleInput.value = event.title;
+
+        modal.style.display = 'block';
+
+        eventForm.onsubmit = function(e) {
+            e.preventDefault();
+            events[index].title = eventTitleInput.value;
+            localStorage.setItem('events', JSON.stringify(events));
+            modal.style.display = 'none';
+            displayEvents();
+            GetDaysCalendar(new Date(event.date).getMonth(), new Date(event.date).getFullYear());
+        };
+    }
 // Funcionalidade de colocar uma lista com os eventos salvos na tela com HTML
     function displayEvents() {
         eventList.innerHTML = '';

@@ -109,29 +109,27 @@
                 </table>
             </div>
             <h2 id="ano" style="text-align: center;">2024</h2>
-        </div>
-    </main>
 
-    <footer>
-        <div class="footer ">
-            <div class="row g-0 text-center">
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Seja Nosso cliente</h5>
-                    <p>Cadastre-se</p>
-                </div>
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Fale com a gente</h5>
-                    <p>Enviar Mensagem</p>
-                    <p>Suporte (31) 9 9999-9999</p>
-                    <p>Reclame aqui</p>
-                </div>
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Criadores</h5>
-                    <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
-                </div>
+            
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Adicione um sintoma ou um evento</h2>
+                <form id="eventForm">
+                    <label for="eventDate">Data:</label>
+                    <input type="text" id="eventDate" name="eventDate"  class="form-control" readonly>
+                    <label for="eventTitle">Título:</label>
+                    <input type="text" id="eventTitle" name="eventTitle"  class="form-control" placeholder="Dor de cabeça" required>
+                    <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                </form>
             </div>
         </div>
-    </footer>
+
+        </div>
+    </main>
+    
+
+
 
     <script src="./assets/js/Calendario_sin.js"></script>
 </body>

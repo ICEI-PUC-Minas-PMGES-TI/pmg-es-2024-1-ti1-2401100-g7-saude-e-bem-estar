@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('mes').innerHTML = monthBR[mes];
         document.getElementById('ano').innerHTML = ano;
 
-        let firstDayOfWeek = new Date(ano, mes, 1).getDay() - 1;
+        let firstDayOfWeek = new Date(ano, mes, 0).getDay() - 1;
         let getLastDayThisMonth = new Date(ano, mes + 1, 0).getDate();
 
         for (let i = -firstDayOfWeek, index = 0; i < (42 - firstDayOfWeek); i++, index++) {

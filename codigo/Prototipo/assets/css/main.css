@@ -9,10 +9,12 @@ body {
 
 /*Inicio formatação do header*/
 .header {
-  overflow: hidden;
-  background-color: #3685F5;
+  overflow:visible;
+  background: #6036F5;
   padding: 20px 10px;
   color: white;
+  height: 20%;
+  height: 100px;
 }
 
 
@@ -36,12 +38,13 @@ body {
 }
 
 .header a:hover {
-  background-color: #3077DA;
+  background: #3077DA;
   color: white;
 }
 
 .header-right {
   float: right;
+  text-align: right;
 }
 
 @media screen and (max-width: 500px) {
@@ -79,52 +82,8 @@ body {
 }
 
 .cards{
-  background-color: #D1FFD4;
+  background-color: #abceff;
 }
-
-/* Inicio carrosel*/
-.carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  min-width: 100%;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
-}
-
-.carousel-btn {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-  padding: 10px;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
-}
-/*Fim Carrosel*/
 
 .link{
   color: #3077DA;
@@ -138,7 +97,7 @@ body {
 .footer {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  background-color: #3685F5;
+  background-color: #3649F5;
   color: white;
   bottom: 0;
   margin-top: 200px;
@@ -168,6 +127,3 @@ footer{
 #perfil-paciente h2 {
   margin-top: 20px;
 }
-
-
-

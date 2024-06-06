@@ -1,13 +1,6 @@
-/*funcionalidade do carrosel
-const myCarousel = document.querySelector('#carouselExampleDark')
-
-const carousel = new bootstrap.Carousel(myCarousel, {
-  interval: 2000,
-  touch: false
-})
-//Fim funcionalidade carrosel
-*/
 // Funcionalidade de armazenar dados
+let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
+
 const nomeInput = document.getElementById("nome");
 const crmInput = document.getElementById("crm");
 const especialidadeSelect = document.getElementById("especialidade");
@@ -18,62 +11,49 @@ const senhaInput = document.getElementById("senha");
 const form = document.querySelector("form");
 let especialidadeText = null;
 
-//especialidades nao pode ser input
-let especialidadesJSON = getEspecialidades("assets/json/especialidades.json")
-.then((value) => {
-    let especialidades = value.especialidades;
-    let tamanho = Object.keys(value.especialidades).length;
-
-    for (let i = 0; i < tamanho; i++){
-        createCustomOptions(especialidadeSelect, especialidades[i].id, especialidades[i].nome);
-    }
-})
-
-especialidadeSelect.addEventListener("click", () => {
-    let options = especialidadeSelect.querySelectorAll("option");
-    let quantidadeOptions = options.length;
-
-    if (typeof(quantidadeOptions) === "undefined" || quantidadeOptions < 2)
-        console.log("Erro ao carregar o arquivo .json");
-})
-
-especialidadeSelect.addEventListener("change", () => {
-    especialidadeText = especialidadeSelect.options[especialidadeSelect.selectedIndex].text;
-    console.log(especialidadeText);
-})
-
 function armazenaDados() {
 
   let departamento = new Object();
   departamento.id = obterID();
   departamento.nome = nomeInput.value.trim();
   departamento.crm = crmInput.value.trim();
-
   departamento.especialidade = especialidadeText;
-  
   departamento.telefone = telefoneInput.value.trim();
   departamento.email = emailInput.value.trim();
   departamento.senha = senhaInput.value.trim();
   departamento.data_nascimento = datanascimentoInput.value;
-  
-  let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
-  departamentos.push(departamento);  
-  localStorage.setItem("departamentos", JSON.stringify(departamentos));
 
-  form.reset(); 
-  window.location.href = "Login_Med.html";
-  alert("Cadastro bem-sucedido!");
+
+  const email = emailInput.value.trim();
+
+  if(departamento.email == '' || departamento.senha == '' || departamento.nome == '' || departamento.crm == '' || departamento.data_nascimento == ''){
+    alert("Preencha os campos!");
+  }else{
+
+    const foundDepartment = departamentos.find(departamento => departamento.email == email);
+  
+    if (foundDepartment) {
+        alert("E-mail já cadastrado");
+    } else {
+        departamentos.push(departamento);  
+        localStorage.setItem("departamentos", JSON.stringify(departamentos));
+
+        form.reset(); 
+        window.location.href = "Login_Med.html";
+        alert("Cadastro bem-sucedido!");
+    }
+
+  }
+
 }
 /**
  @returns {number}
  */
 
 function obterID() {
-  
   let id = parseInt(localStorage.getItem("id")) || 0;
   id += 1;
   localStorage.setItem("id", id);
-
   return id;
 }
 // Fim funcionalidade de armazenar dados
@@ -88,6 +68,7 @@ function Login() {
   const foundDepartment = departamentos.find(departamento => departamento.email === email && departamento.senha === password);
 
   if (foundDepartment) {
+    console.log("ID do departamento encontrado:", foundDepartment.id);
       sessionStorage.setItem("idDepartamento", foundDepartment.id);
       window.location.href = "Perfil_Med.html";
       alert("Login bem-sucedido!");
@@ -103,7 +84,6 @@ const nomeh1 = document.querySelector("#name_perfil");
 const idadeh4 = document.querySelector("#idade_perfil");
 const emailh4 = document.querySelector("#email_perfil");
 const telefoneh4 = document.querySelector("#telefone_perfil");
-//const ceph4 = document.querySelector("#cep_perfil"); // Adicionado elemento para exibir o CEP
 const expecializacaoh4 = document.querySelector("#expecializacao_perfil");
 
 function calcularIdade(dataNascimento) {
@@ -124,7 +104,6 @@ function exibirDetalhesDepartamento() {
     const id = sessionStorage.getItem("idDepartamento");
     
     if (id !== null) {
-        let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
         let departamento = departamentos.find((d) => { return d.id == id; } );
 
         if (departamento) {
@@ -153,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
   let departamento = null;
   
   if (id !== null) {
-      let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
       departamento = departamentos.find((d) => { return d.id == id; });
   } else {
       console.error("ID de departamento do usuário não definido no sessionStorage. O usuário deve fazer login primeiro.");
@@ -192,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
           departamento.telefone = telefoneh4.textContent.replace("Telefone: ", "").trim();
           departamento.especialidade = expecializacaoh4.textContent.replace("Especialização: ", "").trim();
 
-          let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
+
           departamentos = departamentos.map(d => {
               if (d.id === departamento.id) {
                   return departamento;
@@ -220,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function excluirConta() {
       if (confirm("Tem certeza de que deseja excluir sua conta? Esta ação é irreversível.")) {
-          let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
+
           departamentos = departamentos.filter(departamento => departamento.id !== parseInt(id));
           localStorage.setItem("departamentos", JSON.stringify(departamentos));
           window.location.href = "Login_Med.html";
@@ -233,3 +211,27 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
   // Fim funcionalida excluir dados
+
+  //especialidades nao pode ser input
+let especialidadesJSON = getEspecialidades("assets/json/especialidades.json")
+.then((value) => {
+    let especialidades = value.especialidades;
+    let tamanho = Object.keys(value.especialidades).length;
+
+    for (let i = 0; i < tamanho; i++){
+        createCustomOptions(especialidadeSelect, especialidades[i].id, especialidades[i].nome);
+    }
+})
+
+especialidadeSelect.addEventListener("click", () => {
+    let options = especialidadeSelect.querySelectorAll("option");
+    let quantidadeOptions = options.length;
+
+    if (typeof(quantidadeOptions) === "undefined" || quantidadeOptions < 2)
+        console.log("Erro ao carregar o arquivo .json");
+})
+
+especialidadeSelect.addEventListener("change", () => {
+    especialidadeText = especialidadeSelect.options[especialidadeSelect.selectedIndex].text;
+    console.log(especialidadeText);
+})

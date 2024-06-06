@@ -104,11 +104,6 @@ table{
 .event.dia-atual::after{
     background: white;
 }
-
-footer {
-    position:fixed bottom;
-  }
-
   .modal {
     display: none;
     position: fixed;

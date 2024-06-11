@@ -183,10 +183,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  document.querySelectorAll('.btn.btn-primary.btn-right')[0].addEventListener('click', function() {
+  document.querySelectorAll('.btn.btn-primary.btn-left')[0].addEventListener('click', function() {
       salvarEdicoes();
   });
-  document.querySelectorAll('.btn.btn-primary.btn-right')[1].addEventListener('click', function() {
+  document.querySelectorAll('.btn.btn-primary.btn-left')[1].addEventListener('click', function() {
       location.reload();
   });
 });

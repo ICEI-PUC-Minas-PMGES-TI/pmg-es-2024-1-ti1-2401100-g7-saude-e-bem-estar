@@ -15,7 +15,8 @@
 
   .header li a{
     color: rgb(0, 0, 0);
+
   }
-  .header li a:hover{
+  .header #sair:hover{
     background: red;
   }

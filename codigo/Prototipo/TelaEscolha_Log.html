@@ -11,39 +11,35 @@
 </head>
 <body>
   <!--Cabeçalho do site -->
-    <Header>
+
+  <header>
         <div class="header">
           <a href="index.html" class="logo"> Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
           <div class="header-right">
             <a href="#home">Meu Caso</a>
             <a href="#contact">Quem Somos</a>
-              <button type="button" onclick="window.location.href='Cadastro_Med.html'" class="btn-verde">Cadastrar</button></a>
-              <button href="#" type="button" onclick="window.location.href='Login_Med.html'"class="btn-verde">Login</button></a>
+              <button type="button" onclick="window.location.href='Cadastro_Med.html'" class="btn-azul">Cadastrar</button></a>
+              <button href="#" type="button" onclick="window.location.href='Login_Med.html'"class="btn-azul">Login</button></a>
           </div>
         </div>
-    </Header>
-
+  </header>
     
 <!--Conteudo central do site -->
-    <main>
-        <br><br><br><h1 class="text-center">Conecte-se à sua saúde, conecte-se ao futuro, conecte-se conosco.</h1><br>
 
-
-<section id="sectionTelaEscolha">
-    <br>
-    <h1>Queremos te conhecer</h1>
-    <br>
-    <div class="cardTelaEscolha" onclick="window.location.href='pagina1.html'">
-        <h2>Profissional de Saúde</h2>
-      </div>
-      
-      <div class="cardTelaEscolha" onclick="window.location.href='pagina2.html'">
-        <h2>Paciente</h2>
-      </div>
-</section>
-
-
-
+<main>
+      <section id="sectionTelaEscolha">
+        <h1 class="text-center">Conecte-se à sua saúde, conecte-se ao futuro, conecte-se conosco.</h1>
+          <h1>Deseja entrar como</h1>
+          <div class="card-container">
+            <div class="cardTelaEscolha" onclick="window.location.href='Login_Med.html'">
+                <h2>Profissional</h2>
+            </div>
+            <div class="cardTelaEscolha" onclick="window.location.href='cadastro_paciente.html'">
+                <h2>Paciente</h2>
+            </div>
+        </div>
+      </section>
+</main>
 
 <!--Footer das informações do site -->
 <footer>
@@ -66,7 +62,7 @@
         </div>
       </div>
     </div>
-  </footer>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

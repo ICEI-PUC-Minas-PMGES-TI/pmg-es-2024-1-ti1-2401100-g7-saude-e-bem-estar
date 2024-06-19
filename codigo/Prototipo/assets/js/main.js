@@ -1,6 +1,20 @@
-// Funcionalidade de armazenar dados
-let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router('../json/db_Med.jso')
 
+const middlewares = jsonServer.defaults()
+
+server.use(middlewares)
+server.use(router)
+server.listen(3000, () => {
+  console.log('JSON Server está em execução!')
+})
+
+import { ProfissionalService } from '../services/profissionais-service.js';
+
+const profissionalService = new ProfissionalService();
+
+// Pegando elementos do formulário
 const nomeInput = document.getElementById("nome");
 const crmInput = document.getElementById("crm");
 const especialidadeSelect = document.getElementById("especialidade");
@@ -11,81 +25,66 @@ const senhaInput = document.getElementById("senha");
 const form = document.querySelector("form");
 let especialidadeText = null;
 
-function armazenaDados() {
+// Função para armazenar dados
+async function armazenaDados() {
+    let profissional = {};
+    profissional.id = await obterID();
+    profissional.nome = nomeInput.value.trim();
+    profissional.crm = crmInput.value.trim();
+    profissional.especialidade = especialidadeText;
+    profissional.telefone = telefoneInput.value.trim();
+    profissional.email = emailInput.value.trim();
+    profissional.senha = senhaInput.value.trim();
+    profissional.data_nascimento = datanascimentoInput.value;
 
-  let departamento = new Object();
-  departamento.id = obterID();
-  departamento.nome = nomeInput.value.trim();
-  departamento.crm = crmInput.value.trim();
-  departamento.especialidade = especialidadeText;
-  departamento.telefone = telefoneInput.value.trim();
-  departamento.email = emailInput.value.trim();
-  departamento.senha = senhaInput.value.trim();
-  departamento.data_nascimento = datanascimentoInput.value;
-
-
-  const email = emailInput.value.trim();
-
-  if(departamento.email == '' || departamento.senha == '' || departamento.nome == '' || departamento.crm == '' || departamento.data_nascimento == ''){
-    alert("Preencha os campos!");
-  }else{
-
-    const foundDepartment = departamentos.find(departamento => departamento.email == email);
-  
-    if (foundDepartment) {
-        alert("E-mail já cadastrado");
-    } else {
-        departamentos.push(departamento);  
-        localStorage.setItem("departamentos", JSON.stringify(departamentos));
-
-        form.reset(); 
-        window.location.href = "Login_Med.html";
-        alert("Cadastro bem-sucedido!");
+    if (!profissional.email || !profissional.senha || !profissional.nome || !profissional.crm || !profissional.data_nascimento) {
+        alert("Preencha todos os campos!");
+        return;
     }
 
-  }
-
+    try {
+        const profissionais = await profissionalService.getAll();
+        if (profissionais.find(prof => prof.email === profissional.email)) {
+            alert("E-mail já cadastrado");
+        } else {
+            await profissionalService.create(profissional);
+            form.reset(); 
+            window.location.href = "Login_Med.html";
+            alert("Cadastro bem-sucedido!");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
-/**
- @returns {number}
- */
 
-function obterID() {
-  let id = parseInt(localStorage.getItem("id")) || 0;
-  id += 1;
-  localStorage.setItem("id", id);
-  return id;
+// Função para obter o próximo ID
+async function obterID() {
+    const profissionais = await profissionalService.getAll();
+    return profissionais.length ? Math.max(...profissionais.map(prof => prof.id)) + 1 : 1;
 }
-// Fim funcionalidade de armazenar dados
 
-// Funcionalidade de login 
-function Login() {
-  const email = emailInput.value.trim();
-  const password = senhaInput.value.trim();
+// Função de login
+async function Login() {
+    const email = emailInput.value.trim();
+    const password = senhaInput.value.trim();
 
-  const departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
+    try {
+        const profissionais = await profissionalService.getAll();
+        const foundProfissional = profissionais.find(prof => prof.email === email && prof.senha === password);
 
-  const foundDepartment = departamentos.find(departamento => departamento.email === email && departamento.senha === password);
-
-  if (foundDepartment) {
-    console.log("ID do departamento encontrado:", foundDepartment.id);
-      sessionStorage.setItem("idDepartamento", foundDepartment.id);
-      window.location.href = "Perfil_Med.html";
-      alert("Login bem-sucedido!");
-  } else {
-      alert("E-mail ou senha incorretos. Por favor, tente novamente.");
-      console.log('load')
-  }
+        if (foundProfissional) {
+            sessionStorage.setItem("idProfissional", foundProfissional.id);
+            window.location.href = "Perfil_Med.html";
+            alert("Login bem-sucedido!");
+        } else {
+            alert("E-mail ou senha incorretos. Por favor, tente novamente.");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
-// Fim funcionalidade de login 
 
-// Funcionalidade calcular idade
-const nomeh1 = document.querySelector("#name_perfil");
-const idadeh4 = document.querySelector("#idade_perfil");
-const emailh4 = document.querySelector("#email_perfil");
-const telefoneh4 = document.querySelector("#telefone_perfil");
-const expecializacaoh4 = document.querySelector("#expecializacao_perfil");
-
+// Função para calcular idade
 function calcularIdade(dataNascimento) {
     const hoje = new Date();
     const dataNasc = new Date(dataNascimento);
@@ -97,122 +96,77 @@ function calcularIdade(dataNascimento) {
     }
     return idade;
 }
-// Funcionalidade calcular idade
 
-// Funcionalidade visualizar dados 
-function exibirDetalhesDepartamento() {
-    const id = sessionStorage.getItem("idDepartamento");
+// Função para exibir detalhes do departamento
+async function exibirDetalhesProfissional() {
+    const id = sessionStorage.getItem("idProfissional");
     
     if (id !== null) {
-        let departamento = departamentos.find((d) => { return d.id == id; } );
-
-        if (departamento) {
-            nomeh1.innerText = departamento.nome;
-            idadeh4.innerText = `Idade: ${calcularIdade(departamento.data_nascimento)}`;
-            emailh4.innerText = `Email: ${departamento.email}`;
-            telefoneh4.innerText = `Telefone: ${departamento.telefone}`;
-            //ceph4.innerText = departamento.cep;
-            expecializacaoh4.innerText = `Especialização: ${departamento.especialidade}`;
-        } else {
-            console.error("Departamento não encontrado para o ID:", id);
+        try {
+            const profissional = await profissionalService.getById(id);
+            if (profissional) {
+                nomeh1.innerText = profissional.nome;
+                idadeh4.innerText = `Idade: ${calcularIdade(profissional.data_nascimento)}`;
+                emailh4.innerText = `Email: ${profissional.email}`;
+                telefoneh4.innerText = `Telefone: ${profissional.telefone}`;
+                expecializacaoh4.innerText = `Especialização: ${profissional.especialidade}`;
+            } else {
+                console.error("Profissional não encontrado para o ID:", id);
+            }
+        } catch (error) {
+            console.error(error);
         }
     } else {
-        console.error("ID de departamento do usuário não definido no localStorage. O usuário deve fazer login primeiro.");
+        console.error("ID de profissional do usuário não definido. O usuário deve fazer login primeiro.");
     }
 }
 
 window.addEventListener("load", () => {
-    exibirDetalhesDepartamento();
+    exibirDetalhesProfissional();
 });
-// Fim funcionalidade visualizar dados 
 
-//Funcionalidade de editar dados
-document.addEventListener("DOMContentLoaded", function() {
-  const id = sessionStorage.getItem("idDepartamento");
-  let departamento = null;
-  
-  if (id !== null) {
-      departamento = departamentos.find((d) => { return d.id == id; });
-  } else {
-      console.error("ID de departamento do usuário não definido no sessionStorage. O usuário deve fazer login primeiro.");
-  }
-  
-  function preencherCampos() {
-      if (departamento) {
-          nomeh1.innerText = departamento.nome;
-          idadeh4.innerText = `Idade: ${calcularIdade(departamento.data_nascimento)}`;
-          emailh4.innerText = `Email: ${departamento.email}`;
-          telefoneh4.innerText = `Telefone: ${departamento.telefone}`;
-          expecializacaoh4.innerText = `Especialização: ${departamento.especialidade}`;
-      }
-  }
+// Função para salvar edições
+async function salvarEdicoes() {
+    const id = sessionStorage.getItem("idProfissional");
 
-  preencherCampos();
+    if (id !== null) {
+        try {
+            let profissional = await profissionalService.getById(id);
+            if (profissional) {
+                profissional.nome = nomeh1.textContent;
+                profissional.email = emailh4.textContent.replace("Email: ", "").trim();
+                profissional.telefone = telefoneh4.textContent.replace("Telefone: ", "").trim();
+                profissional.especialidade = expecializacaoh4.textContent.replace("Especialização: ", "").trim();
 
-  function habilitarEdicao() {
-      if (departamento) {
-          nomeh1.contentEditable = true;
-          idadeh4.contentEditable = true;
-          emailh4.contentEditable = true;
-          telefoneh4.contentEditable = true;
-          expecializacaoh4.contentEditable = true;
-      }
-  }
+                await profissionalService.update(id, profissional);
+                location.reload();
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
 
-  document.querySelector('.btn.btn-primary').addEventListener('click', function() {
-      habilitarEdicao();
-  });
+// Função para excluir conta
+async function excluirConta() {
+    const id = sessionStorage.getItem("idProfissional");
 
-  function salvarEdicoes() {
-      if (departamento) {
-          departamento.nome = nomeh1.textContent;
-          departamento.email = emailh4.textContent.replace("Email: ", "").trim();
-          departamento.telefone = telefoneh4.textContent.replace("Telefone: ", "").trim();
-          departamento.especialidade = expecializacaoh4.textContent.replace("Especialização: ", "").trim();
+    if (confirm("Tem certeza de que deseja excluir sua conta? Esta ação é irreversível.")) {
+        try {
+            await profissionalService.delete(id);
+            window.location.href = "Login_Med.html";
+            alert("Sua conta foi excluída com sucesso!");
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
 
-
-          departamentos = departamentos.map(d => {
-              if (d.id === departamento.id) {
-                  return departamento;
-              } else {
-                  return d;
-              }
-          });
-          localStorage.setItem("departamentos", JSON.stringify(departamentos));
-          location.reload();
-      }
-  }
-
-  document.querySelectorAll('.btn.btn-primary.btn-left')[0].addEventListener('click', function() {
-      salvarEdicoes();
-  });
-  document.querySelectorAll('.btn.btn-primary.btn-left')[1].addEventListener('click', function() {
-      location.reload();
-  });
+document.querySelector('.btn.btn-danger').addEventListener('click', function() {
+    excluirConta();
 });
-  // Fim funcionalida editar dados
-
-  // Funcionalida excluir dados
-document.addEventListener("DOMContentLoaded", function() {
-  const id = sessionStorage.getItem("idDepartamento");
-
-  function excluirConta() {
-      if (confirm("Tem certeza de que deseja excluir sua conta? Esta ação é irreversível.")) {
-
-          departamentos = departamentos.filter(departamento => departamento.id !== parseInt(id));
-          localStorage.setItem("departamentos", JSON.stringify(departamentos));
-          window.location.href = "Login_Med.html";
-          alert("Sua conta foi excluída com sucesso!");
-      }
-  }
-
-  document.querySelector('.btn.btn-danger').addEventListener('click', function() {
-      excluirConta();
-  });
-});
-  // Fim funcionalida excluir dados
-
-  //especialidades nao pode ser input
+ 
+// Especialidades
 let especialidadesJSON = getEspecialidades("assets/json/especialidades.json")
 .then((value) => {
     let especialidades = value.especialidades;

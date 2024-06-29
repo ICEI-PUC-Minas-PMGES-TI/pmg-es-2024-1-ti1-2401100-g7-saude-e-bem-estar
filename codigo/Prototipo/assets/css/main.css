@@ -13,7 +13,7 @@ body {
   align-items: center;
   background: #3685F5;
   padding: 20px 10px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .header a {
@@ -21,7 +21,7 @@ body {
   padding: 12px;
   text-decoration: none;
   font-size: 18px; 
-  line-height: 25px;
+  line-height: 25px;  
   border-radius: 4px;
   color: white;
 }
@@ -73,7 +73,7 @@ body {
   font-size: 18px; 
   border-radius: 6px;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   margin: 5px;
 }
 

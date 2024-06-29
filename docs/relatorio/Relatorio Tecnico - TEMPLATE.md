@@ -374,24 +374,32 @@ Revisão do Sprint: Uma reunião realizada no final de cada Sprint para revisar 
 
 # Projeto da Solução
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Software para Acompanhamento Constante da Saúde - O objetivo deste projeto é criar um software que permita o acompanhamento constante da saúde dos usuários, fornecendo monitoramento e relatórios de dados de saúde em tempo real. Abaixo, apresento um exemplo de User Flow para o sistema, desde o registro do usuário até o monitoramento dos dados de saúde.
 
 ## Tecnologias Utilizadas
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Tecnologias Utilizadas
+Editor de Código: Visual Studio Code
+Linguagens de Programação: HTML, CSS, JavaScript
+Ferramenta de Organização e Design: Figma
 
-> Descreva aqui qual(is) tecnologias você vai usar para resolver o seu
-> problema, ou seja, implementar a sua solução. Liste todas as
-> tecnologias envolvidas, linguagens a serem utilizadas, serviços web,
-> frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-> Apresente também uma figura explicando como as tecnologias estão
-> relacionadas ou como uma interação do usuário com o sistema vai ser
-> conduzida, por onde ela passa até retornar uma resposta ao usuário.
-> 
-> Inclua os diagramas de User Flow, esboços criados pelo grupo
-> (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
-> item textualmente comentando e complementando o que está apresentado
-> nas imagens.
+![Diagrama de fluxo](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar/assets/95948984/466a4f11-eaef-4c48-b559-c489a5da8835)
+
+Estrutura de Arquivos
+index.html: Página inicial com opções de login e registro.
+Cadastro_Med.html: Formulário de registro de usuário - profissional.
+cadastro_Paciente.html: Formulário de registro de usuário - paciente.
+calendario_sin.html: calendário para registro de sintomas.
+calendario.html: calendário para registro de sintomas.
+perguntasAoCadastrar.html: registro de histórico de saúde do paciente.
+
+Estrutura de Código
+HTML: Estrutura das páginas web.
+CSS: Estilos e design das páginas.
+JavaScript: Lógica do lado do cliente para interação com o usuário e manipulação de dados.
+Organização do Time
+Para a organização do time, usamos o Figma para definir as atividades de cada membro e os prazos das Sprints, garantindo que todos os aspectos do projeto sejam cobertos e que os prazos sejam cumpridos.
+
 
 ## Arquitetura da solução
 

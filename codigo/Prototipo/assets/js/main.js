@@ -1,20 +1,6 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('../json/db_Med.jso')
+// Funcionalidade de armazenar dados
+let departamentos = JSON.parse(localStorage.getItem("departamentos")) || [];
 
-const middlewares = jsonServer.defaults()
-
-server.use(middlewares)
-server.use(router)
-server.listen(3000, () => {
-  console.log('JSON Server está em execução!')
-})
-
-import { ProfissionalService } from '../services/profissionais-service.js';
-
-const profissionalService = new ProfissionalService();
-
-// Pegando elementos do formulário
 const nomeInput = document.getElementById("nome");
 const crmInput = document.getElementById("crm");
 const especialidadeSelect = document.getElementById("especialidade");
@@ -25,167 +11,181 @@ const senhaInput = document.getElementById("senha");
 const form = document.querySelector("form");
 let especialidadeText = null;
 
-// Função para armazenar dados
-async function armazenaDados() {
-    let profissional = {};
-    profissional.id = await obterID();
-    profissional.nome = nomeInput.value.trim();
-    profissional.crm = crmInput.value.trim();
-    profissional.especialidade = especialidadeText;
-    profissional.telefone = telefoneInput.value.trim();
-    profissional.email = emailInput.value.trim();
-    profissional.senha = senhaInput.value.trim();
-    profissional.data_nascimento = datanascimentoInput.value;
+function armazenaDados() {
+  let departamento = new Object();
+  departamento.id = obterID();
+  departamento.nome = nomeInput.value.trim();
+  departamento.crm = crmInput.value.trim();
+  departamento.especialidade = especialidadeText;
+  departamento.telefone = telefoneInput.value.trim();
+  departamento.email = emailInput.value.trim();
+  departamento.senha = senhaInput.value.trim();
+  departamento.data_nascimento = datanascimentoInput.value;
 
-    if (!profissional.email || !profissional.senha || !profissional.nome || !profissional.crm || !profissional.data_nascimento) {
-        alert("Preencha todos os campos!");
-        return;
-    }
-
-    try {
-        const profissionais = await profissionalService.getAll();
-        if (profissionais.find(prof => prof.email === profissional.email)) {
-            alert("E-mail já cadastrado");
-        } else {
-            await profissionalService.create(profissional);
-            form.reset(); 
-            window.location.href = "Login_Med.html";
-            alert("Cadastro bem-sucedido!");
-        }
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-// Função para obter o próximo ID
-async function obterID() {
-    const profissionais = await profissionalService.getAll();
-    return profissionais.length ? Math.max(...profissionais.map(prof => prof.id)) + 1 : 1;
-}
-
-// Função de login
-async function Login() {
-    const email = emailInput.value.trim();
-    const password = senhaInput.value.trim();
-
-    try {
-        const profissionais = await profissionalService.getAll();
-        const foundProfissional = profissionais.find(prof => prof.email === email && prof.senha === password);
-
-        if (foundProfissional) {
-            sessionStorage.setItem("idProfissional", foundProfissional.id);
-            window.location.href = "Perfil_Med.html";
-            alert("Login bem-sucedido!");
-        } else {
-            alert("E-mail ou senha incorretos. Por favor, tente novamente.");
-        }
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-// Função para calcular idade
-function calcularIdade(dataNascimento) {
-    const hoje = new Date();
-    const dataNasc = new Date(dataNascimento);
-    let idade = hoje.getFullYear() - dataNasc.getFullYear();
-    const mes = hoje.getMonth() - dataNasc.getMonth();
-
-    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
-        idade--;
-    }
-    return idade;
-}
-
-// Função para exibir detalhes do departamento
-async function exibirDetalhesProfissional() {
-    const id = sessionStorage.getItem("idProfissional");
-    
-    if (id !== null) {
-        try {
-            const profissional = await profissionalService.getById(id);
-            if (profissional) {
-                nomeh1.innerText = profissional.nome;
-                idadeh4.innerText = `Idade: ${calcularIdade(profissional.data_nascimento)}`;
-                emailh4.innerText = `Email: ${profissional.email}`;
-                telefoneh4.innerText = `Telefone: ${profissional.telefone}`;
-                expecializacaoh4.innerText = `Especialização: ${profissional.especialidade}`;
-            } else {
-                console.error("Profissional não encontrado para o ID:", id);
-            }
-        } catch (error) {
-            console.error(error);
-        }
+  if (departamento.email === '' || departamento.senha === '' || departamento.nome === '' || departamento.crm === '' || departamento.data_nascimento === '') {
+    alert("Preencha os campos!");
+  } else {
+    const foundDepartment = departamentos.find(departamento => departamento.email === departamento.email);
+    if (foundDepartment) {
+      alert("E-mail já cadastrado");
     } else {
-        console.error("ID de profissional do usuário não definido. O usuário deve fazer login primeiro.");
+      departamentos.push(departamento);  
+      localStorage.setItem("departamentos", JSON.stringify(departamentos));
+      form.reset(); 
+      window.location.href = "Login_Med.html";
+      alert("Cadastro bem-sucedido!");
     }
+  }
+}
+
+function obterID() {
+  let id = parseInt(localStorage.getItem("id")) || 0;
+  id += 1;
+  localStorage.setItem("id", id);
+  return id;
+}
+
+function Login() {
+  const email = emailInput.value.trim();
+  const password = senhaInput.value.trim();
+  const foundDepartment = departamentos.find(departamento => departamento.email === email && departamento.senha === password);
+  if (foundDepartment) {
+    sessionStorage.setItem("idDepartamento", foundDepartment.id);
+    window.location.href = "Perfil_Med.html";
+    alert("Login bem-sucedido!");
+  } else {
+    alert("E-mail ou senha incorretos. Por favor, tente novamente.");
+  }
+}
+
+const nomeh1 = document.querySelector("#name_perfil");
+const idadeh4 = document.querySelector("#idade_perfil");
+const emailh4 = document.querySelector("#email_perfil");
+const telefoneh4 = document.querySelector("#telefone_perfil");
+const especializacaoh4 = document.querySelector("#especializacao_perfil");
+
+function calcularIdade(dataNascimento) {
+  const hoje = new Date();
+  const dataNasc = new Date(dataNascimento);
+  let idade = hoje.getFullYear() - dataNasc.getFullYear();
+  const mes = hoje.getMonth() - dataNasc.getMonth();
+  if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
+    idade--;
+  }
+  return idade;
+}
+
+function exibirDetalhesDepartamento() {
+  const id = sessionStorage.getItem("idDepartamento");
+  if (id !== null) {
+    let departamento = departamentos.find(d => d.id == id);
+    if (departamento) {
+      nomeh1.innerText = departamento.nome;
+      idadeh4.innerText = `Idade: ${calcularIdade(departamento.data_nascimento)}`;
+      emailh4.innerText = `Email: ${departamento.email}`;
+      telefoneh4.innerText = `Telefone: ${departamento.telefone}`;
+      especializacaoh4.innerText = `Especialização: ${departamento.especialidade}`;
+    } else {
+      console.error("Departamento não encontrado para o ID:", id);
+    }
+  } else {
+    console.error("ID de departamento do usuário não definido no sessionStorage. O usuário deve fazer login primeiro.");
+  }
 }
 
 window.addEventListener("load", () => {
-    exibirDetalhesProfissional();
+  exibirDetalhesDepartamento();
 });
 
-// Função para salvar edições
-async function salvarEdicoes() {
-    const id = sessionStorage.getItem("idProfissional");
+document.addEventListener("DOMContentLoaded", function() {
+  const id = sessionStorage.getItem("idDepartamento");
+  let departamento = null;
 
-    if (id !== null) {
-        try {
-            let profissional = await profissionalService.getById(id);
-            if (profissional) {
-                profissional.nome = nomeh1.textContent;
-                profissional.email = emailh4.textContent.replace("Email: ", "").trim();
-                profissional.telefone = telefoneh4.textContent.replace("Telefone: ", "").trim();
-                profissional.especialidade = expecializacaoh4.textContent.replace("Especialização: ", "").trim();
+  if (id !== null) {
+    departamento = departamentos.find(d => d.id == id);
+  } else {
+    console.error("ID de departamento do usuário não definido no sessionStorage. O usuário deve fazer login primeiro.");
+  }
 
-                await profissionalService.update(id, profissional);
-                location.reload();
-            }
-        } catch (error) {
-            console.error(error);
-        }
+  function preencherCampos() {
+    if (departamento) {
+      nomeh1.innerText = departamento.nome;
+      idadeh4.innerText = `Idade: ${calcularIdade(departamento.data_nascimento)}`;
+      emailh4.innerText = `Email: ${departamento.email}`;
+      telefoneh4.innerText = `Telefone: ${departamento.telefone}`;
+      especializacaoh4.innerText = `Especialização: ${departamento.especialidade}`;
     }
-}
+  }
 
-// Função para excluir conta
-async function excluirConta() {
-    const id = sessionStorage.getItem("idProfissional");
+  preencherCampos();
 
+  function habilitarEdicao() {
+    if (departamento) {
+      nomeh1.contentEditable = true;
+      idadeh4.contentEditable = true;
+      emailh4.contentEditable = true;
+      telefoneh4.contentEditable = true;
+      especializacaoh4.contentEditable = true;
+    }
+  }
+
+  document.querySelector('.btn.btn-primary').addEventListener('click', function() {
+    habilitarEdicao();
+  });
+
+  function salvarEdicoes() {
+    if (departamento) {
+      departamento.nome = nomeh1.textContent;
+      departamento.email = emailh4.textContent.replace("Email: ", "").trim();
+      departamento.telefone = telefoneh4.textContent.replace("Telefone: ", "").trim();
+      departamento.especialidade = especializacaoh4.textContent.replace("Especialização: ", "").trim();
+      departamentos = departamentos.map(d => d.id === departamento.id ? departamento : d);
+      localStorage.setItem("departamentos", JSON.stringify(departamentos));
+      location.reload();
+    }
+  }
+
+  document.querySelectorAll('.btn.btn-primary.btn-left')[0].addEventListener('click', function() {
+    salvarEdicoes();
+  });
+
+  document.querySelectorAll('.btn.btn-primary.btn-left')[1].addEventListener('click', function() {
+    location.reload();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const id = sessionStorage.getItem("idDepartamento");
+
+  function excluirConta() {
     if (confirm("Tem certeza de que deseja excluir sua conta? Esta ação é irreversível.")) {
-        try {
-            await profissionalService.delete(id);
-            window.location.href = "Login_Med.html";
-            alert("Sua conta foi excluída com sucesso!");
-        } catch (error) {
-            console.error(error);
-        }
+      departamentos = departamentos.filter(departamento => departamento.id !== parseInt(id));
+      localStorage.setItem("departamentos", JSON.stringify(departamentos));
+      window.location.href = "Login_Med.html";
+      alert("Sua conta foi excluída com sucesso!");
     }
-}
+  }
 
-document.querySelector('.btn.btn-danger').addEventListener('click', function() {
+  document.querySelector('.btn.btn-danger').addEventListener('click', function() {
     excluirConta();
+  });
 });
- 
-// Especialidades
+
 let especialidadesJSON = getEspecialidades("assets/json/especialidades.json")
 .then((value) => {
-    let especialidades = value.especialidades;
-    let tamanho = Object.keys(value.especialidades).length;
-
-    for (let i = 0; i < tamanho; i++){
-        createCustomOptions(especialidadeSelect, especialidades[i].id, especialidades[i].nome);
-    }
-})
+  let especialidades = value.especialidades;
+  especialidades.forEach(especialidade => {
+    createCustomOptions(especialidadeSelect, especialidade.id, especialidade.nome);
+  });
+});
 
 especialidadeSelect.addEventListener("click", () => {
-    let options = especialidadeSelect.querySelectorAll("option");
-    let quantidadeOptions = options.length;
-
-    if (typeof(quantidadeOptions) === "undefined" || quantidadeOptions < 2)
-        console.log("Erro ao carregar o arquivo .json");
-})
+  let options = especialidadeSelect.querySelectorAll("option");
+  if (options.length < 2) {
+    console.log("Erro ao carregar o arquivo .json");
+  }
+});
 
 especialidadeSelect.addEventListener("change", () => {
-    especialidadeText = especialidadeSelect.options[especialidadeSelect.selectedIndex].text;
-    console.log(especialidadeText);
-})
+  especialidadeText = especialidadeSelect.options[especialidadeSelect.selectedIndex].text;
+});

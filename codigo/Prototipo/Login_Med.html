@@ -5,64 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+    <link rel="icon" href="assets/img/Saude2.png">
     <title>Santé</title>
 </head>
 <body>
-    <Header>
+    <header>
         <div class="header">
-          <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
-          <div class="header-right">
-            <a href="#home">Meu Caso</a>
-            <a href="#contact">Quem Somos</a>
-            <button href="#" type="button" class="btn-azul">Cadastrar</button>
-            <button href="#" type="button" class="btn-azul">Login</button>
-          </div>
+            <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+            <div class="header-right">
+                <a href="#home">Meu Caso</a>
+                <a href="#contact">Quem Somos</a>
+                <button type="button" onclick="window.location.href='Cadastro_Med.html'" class="btn-azul">Cadastrar</button>
+                <button type="button" onclick="window.location.href='#'" class="btn-azul">Login</button>
+            </div>
         </div>
-    </Header>
+    </header>
     
     <main>
-    <br><div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
-        <form>
-          <h2 class="d-flex justify-content-center">Login de Médico</h2>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
-          </div>
-          <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" class="form-control" id="senha" name="Senha" placeholder="******" required>
-          </div><br>
-          <div class="d-flex justify-content-center">
-            <a href=""><button type="submit" onclick="Login()" class="btn btn-primary">Login</button></a>
-            <a href="index.html" ><button class="btn btn-info">Voltar</button></a>
-          </div>
-          <br><a href="Cadastro_Med.html" class="d-flex justify-content-center link" >Ainda não tem uma conta?</a>
-        </form>
-      </div>
+        <br>
+        <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+            <form>
+                <h2 class="d-flex justify-content-center">Login de Médico</h2>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="Senha" placeholder="******" required>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" onclick="Login()" class="btn btn-primary">Login</button>
+                    <button type="button" onclick="window.location.href='index.html'" class="btn btn-info">Voltar</button>
+                </div>
+                <br>
+                <a href="Cadastro_Med.html" class="d-flex justify-content-center link">Ainda não tem uma conta?</a>
+            </form>
+        </div>
     </main>
 
     <footer>
-        <div class="footer ">
-          <div class="row g-0 text-center">
-  
-            <div class="col-6 col-md-4 p-2">
-              <h5>Seja Nosso cliente</h5>
-              <p>Cadastre-se</p>
+        <div class="footer">
+            <div class="row g-0 text-center">
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Seja Nosso cliente</h5>
+                    <p>Cadastre-se</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Fale com a gente</h5>
+                    <p>Enviar Mensagem</p>
+                    <p>Suporte (31) 9 9999-9999</p>
+                    <p>Reclame aqui</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Criadores</h5>
+                    <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico</p>
+                </div>
             </div>
-            <div class="col-6 col-md-4 p-2">
-              <h5>Fale com a gente</h5>
-              <p>Enviar Mensagem</p>
-              <p>Suporte (31) 9 9999-9999</p>
-              <p>Reclame aqui</p>
-            </div>
-            <div class="col-6 col-md-4 p-2">
-              <h5>Criadores</h5>
-              <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
-            </div>
-          </div>
         </div>
-      </footer>
+    </footer>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

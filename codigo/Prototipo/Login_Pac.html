@@ -3,68 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <title>Santé - Login de Paciente</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="icon" href="assets/img/Saude2.png">
-    <title>Santé</title>
 </head>
 <body>
-    <header>
-        <div class="header">
-            <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
-            <div class="header-right">
-                <a href="#home">Meu Caso</a>
-                <a href="#contact">Quem Somos</a>
-                <button type="button" onclick="window.location.href='Cadastro_Med.html'" class="btn-azul">Cadastrar</button>
-                <button type="button" onclick="window.location.href='#'" class="btn-azul">Login</button>
-            </div>
+<header>
+    <div class="header">
+        <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+        <div class="header-right">
+            <a href="#home">Meu Caso</a>
+            <a href="#contact">Quem Somos</a>
+            <button type="button" class="btn-azul" onclick="window.location.href='Cadastro_Pac.html'">Cadastrar</button>
+            <button type="button" class="btn-azul" onclick="window.location.href='Login_Pac.html'">Login</button>
         </div>
-    </header>
-    
-    <main>
-        <br>
-        <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
-            <form>
-                <h2 class="d-flex justify-content-center">Login de  Paciente</h2>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <input type="password" class="form-control" id="senha" name="Senha" placeholder="******" required>
-                </div>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" onclick="Login()" class="btn btn-primary">Login</button>
-                    <button type="button" onclick="window.location.href='index.html'" class="btn btn-info">Voltar</button>
-                </div>
-                <br>
-                <a href="Cadastro_Med.html" class="d-flex justify-content-center link">Ainda não tem uma conta?</a>
-            </form>
-        </div>
-    </main>
+    </div>
+</header>
 
-    <footer>
-        <div class="footer">
-            <div class="row g-0 text-center">
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Seja Nosso cliente</h5>
-                    <p>Cadastre-se</p>
-                </div>
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Fale com a gente</h5>
-                    <p>Enviar Mensagem</p>
-                    <p>Suporte (31) 9 9999-9999</p>
-                    <p>Reclame aqui</p>
-                </div>
-                <div class="col-6 col-md-4 p-2">
-                    <h5>Criadores</h5>
-                    <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico</p>
-                </div>
+<main>
+    <br>
+    <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form id="loginForm">
+            <h2 class="d-flex justify-content-center">Login de Paciente</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
             </div>
-        </div>
-    </footer>
-    <script src="assets/js/main.js"></script>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="******" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</main>
+
+<footer class="fixed-bottom text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="cadastro_paciente.html">Cadastrar</a>
+    </div>
+</footer>
+
+<script src="assets/js/Login_Pac.js"></script>
 </body>
 </html>

@@ -3,210 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <title>Santé</title>
-    <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+    <title>Santé - Cadastro de Paciente</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="icon" href="assets/img/Saude2.png">
 </head>
 <body>
-    
 <header>
     <div class="header">
         <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
         <div class="header-right">
             <a href="#home">Meu Caso</a>
             <a href="#contact">Quem Somos</a>
-            <button type="button" class="btn-azul">Cadastrar</button>
-            <button type="button" class="btn-azul">Login</button>
+            <button type="button" class="btn-azul" onclick="window.location.href='Cadastro_Pac.html'">Cadastrar</button>
+            <button type="button" class="btn-azul" onclick="window.location.href='Login_Pac.html'">Login</button>
         </div>
     </div>
 </header>
 
-<br>
-<div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
-    <form id="cadastroForm">
-        <h2 class="d-flex justify-content-center">Cadastro de Paciente</h2>
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Matheus" required>
-        </div>
-        <div class="form-group">
-            <label for="telefone">Telefone:</label>
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
-        </div>
-        <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" class="form-control" id="senha" name="senha" placeholder="******" required>
-        </div>
-        <div class="form-group">
-            <label for="data_nascimento">Data de Nascimento:</label>
-            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
-        </div>
-        <!-- Continue adicionando os campos do formulário aqui -->
-        <br>
-        <div class="form-group">
-            <label for="historico_familiar">1. Você tem algum histórico familiar de condições médicas importantes?</label>
-            <select id="historico_familiar" name="historico_familiar" class="form-control" onchange="mostrarCampoOutro(this, 'outra_doenca')">
-                <option value="doenca_cardiaca">Doenças cardiovasculares</option>
-                <option value="diabetes">Diabetes</option>
-                <option value="doenca_respiratoria">Doenças respiratórias crônicas</option>
-                <option value="doenca_neurologica">Doenças neurológicas</option>
-                <option value="cancer">Câncer</option>
-                <option value="doenca_mental">Doenças infecciosas (incluindo HIV/AIDS, tuberculose, hepatite, infecções bacterianas, virais e fúngicas)</option>
-                <option value="doenca_autoimune">Doenças autoimunes</option>
-                <option value="obesidade">Obesidade</option>
-                <option value="doenca_renal">Doenças renais</option>
-                <option value="outra">Outro (especificar abaixo)</option>
-            </select>
-            <input type="text" class="form-control mt-2" id="outra_doenca" name="outra_doenca" placeholder="Especifique a outra doença" style="display: none;">
-        </div>
-        <div class="form-group mt-4">
-            <label for="condicao_atual">2. Você tem alguma condição médica crônica atualmente?</label>
-            <select id="condicao_atual" name="condicao_atual" class="form-control" onchange="mostrarCampoOutro(this, 'outra_condicao')">
-                <option value="hipertensao">Hipertensão</option>
-                <option value="asma">Asma</option>
-                <option value="artrite">Artrite</option>
-                <option value="doenca_pulmonar">Doença pulmonar</option>
-                <option value="doenca_renal">Doença renal</option>
-                <option value="enxaqueca">Enxaqueca</option>
-                <option value="doenca_inflamatoria_intestinal">Doenças inflamatórias intestinais</option>
-                <option value="eplepsia">Epilepsia</option>
-                <option value="lupus">Lúpus</option>
-                <option value="outra">Outro (especificar abaixo)</option>
-            </select>
-            <input type="text" class="form-control mt-2" id="outra_condicao" name="outra_condicao" placeholder="Especifique a outra condição" style="display: none;">
-        </div>
-        <div class="form-group mt-4">
-            <label for="doenca_passada">3. Você já foi diagnosticado com alguma doença grave no passado?</label>
-            <select id="doenca_passada" name="doenca_passada" class="form-control" onchange="mostrarCampoOutro(this, 'outra_doenca_passada')">
-                <option value="derrame">Derrame</option>
-                <option value="doenca_cardiaca">Doenças cardiovasculares</option>
-                <option value="diabetes">Diabetes</option>
-                <option value="doenca_respiratoria">Doenças respiratórias crônicas</option>
-                <option value="doenca_neurologica">Doenças neurológicas</option>
-                <option value="cancer">Câncer</option>
-                <option value="doenca_mental">Doenças infecciosas (incluindo HIV/AIDS, tuberculose, hepatite, infecções bacterianas, virais e fúngicas)</option>
-                <option value="doenca_autoimune">Doenças autoimunes</option>
-                <option value="obesidade">Obesidade</option>
-                <option value="doenca_renal">Doenças renais</option>
-                <option value="outra">Outro (especificar abaixo)</option>
-            </select>
-            <input type="text" class="form-control mt-2" id="outra_doenca_passada" name="outra_doenca_passada" placeholder="Especifique a outra doença" style="display: none;">
-        </div>
-        <div class="form-group mt-4">
-            <label for="historico_alergias">4. Qual é o seu histórico de alergias?</label>
-            <textarea id="historico_alergias" name="historico_alergias" rows="3" class="form-control" placeholder="Descreva suas alergias"></textarea>
-        </div>
-        <div class="form-group mt-4">
-            <label for="medicamentos_atuais">5. Você está atualmente tomando algum medicamento? Se sim, quais?</label>
-            <textarea id="medicamentos_atuais" name="medicamentos_atuais" rows="3" class="form-control" placeholder="Descreva seus medicamentos atuais"></textarea>
-        </div>
-        <div class="form-group mt-4">
-            <label for="habitos">6. Você fuma ou consome álcool?</label><br>
-            <label><input type="radio" name="habitos" value="fuma"> Fuma</label><br>
-            <label><input type="radio" name="habitos" value="bebe"> Consome Álcool</label><br>
-            <label><input type="radio" name="habitos" value="nao"> Não</label>
-        </div>
-        <div class="form-group mt-4">
-            <label for="atividade_fisica">7. Como é a sua rotina de atividade física? Você pratica exercícios regularmente?</label><br>
-            <label><input type="radio" name="atividade_fisica" value="sim"> Sim (de 1 a 7 vezes na semana)</label><br>
-            <label><input type="radio" name="atividade_fisica" value="nao"> Não</label>
-        </div>
-        <div class="form-group mt-4">
-            <label for="restricao_alimentar">8. Você tem alguma restrição alimentar?</label>
-            <textarea id="restricao_alimentar" name="restricao_alimentar" rows="3" class="form-control" placeholder="Descreva suas restrições alimentares"></textarea>
-        </div>
-        <div class="form-group mt-4">
-            <label for="preocupacoes">9. Você tem alguma preocupação específica com sua saúde que gostaria de mencionar?</label>
-            <textarea id="preocupacoes" name="preocupacoes" rows="3" class="form-control" placeholder="Mencione suas preocupações"></textarea>
-        </div>
-      <br>
-        <div class="d-flex justify-content-center">
+<main>
+    <br>
+    <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form id="cadastroForm">
+            <h2 class="d-flex justify-content-center">Cadastro de Paciente</h2>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Matheus" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="******" required>
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="historico_familiar">1. Você tem algum histórico familiar de condições médicas importantes?</label>
+                <select id="historico_familiar" name="historico_familiar" class="form-control" onchange="mostrarCampoOutro(this, 'outra_doenca')">
+                    <option value="doenca_cardiaca">Doenças cardiovasculares</option>
+                    <option value="diabetes">Diabetes</option>
+                    <option value="doenca_respiratoria">Doenças respiratórias crônicas</option>
+                    <option value="doenca_neurologica">Doenças neurológicas</option>
+                    <option value="cancer">Câncer</option>
+                    <option value="doenca_mental">Doenças infecciosas (incluindo HIV/AIDS, tuberculose, hepatite, infecções bacterianas, virais e fúngicas)</option>
+                    <option value="doenca_autoimune">Doenças autoimunes</option>
+                    <option value="obesidade">Obesidade</option>
+                    <option value="doenca_renal">Doenças renais</option>
+                    <option value="outra">Outro (especificar abaixo)</option>
+                </select>
+                <input type="text" class="form-control mt-2" id="outra_doenca" name="outra_doenca" placeholder="Especifique a outra doença" style="display: none;">
+            </div>
+            <div class="form-group mt-4">
+                <label for="condicao_atual">2. Você tem alguma condição médica crônica atualmente?</label>
+                <select id="condicao_atual" name="condicao_atual" class="form-control" onchange="mostrarCampoOutro(this, 'outra_condicao')">
+                    <option value="hipertensao">Hipertensão</option>
+                    <option value="asma">Asma</option>
+                    <option value="artrite">Artrite</option>
+                    <option value="doenca_pulmonar">Doença pulmonar</option>
+                    <option value="doenca_renal">Doença renal</option>
+                    <option value="enxaqueca">Enxaqueca</option>
+                    <option value="doenca_inflamatoria_intestinal">Doenças inflamatórias intestinais</option>
+                    <option value="eplepsia">Epilepsia</option>
+                    <option value="lupus">Lúpus</option>
+                    <option value="outra">Outro (especificar abaixo)</option>
+                </select>
+                <input type="text" class="form-control mt-2" id="outra_condicao" name="outra_condicao" placeholder="Especifique a outra condição" style="display: none;">
+            </div>
+            <div class="form-group mt-4">
+                <label for="doenca_passada">3. Você já foi diagnosticado com alguma doença grave no passado?</label>
+                <select id="doenca_passada" name="doenca_passada" class="form-control" onchange="mostrarCampoOutro(this, 'outra_doenca_passada')">
+                    <option value="derrame">Derrame</option>
+                    <option value="doenca_cardiaca">Doenças cardiovasculares</option>
+                    <option value="diabetes">Diabetes</option>
+                    <option value="doenca_respiratoria">Doenças respiratórias crônicas</option>
+                    <option value="doenca_neurologica">Doenças neurológicas</option>
+                    <option value="cancer">Câncer</option>
+                    <option value="doenca_mental">Doenças infecciosas (incluindo HIV/AIDS, tuberculose, hepatite, infecções bacterianas, virais e fúngicas)</option>
+                    <option value="doenca_autoimune">Doenças autoimunes</option>
+                    <option value="obesidade">Obesidade</option>
+                    <option value="doenca_renal">Doenças renais</option>
+                    <option value="outra">Outro (especificar abaixo)</option>
+                </select>
+                <input type="text" class="form-control mt-2" id="outra_doenca_passada" name="outra_doenca_passada" placeholder="Especifique a outra doença" style="display: none;">
+            </div>
+            <div class="form-group mt-4">
+                <label for="historico_alergias">4. Qual é o seu histórico de alergias?</label>
+                <textarea id="historico_alergias" name="historico_alergias" rows="3" class="form-control" placeholder="Descreva suas alergias"></textarea>
+            </div>
+            <div class="form-group mt-4">
+                <label for="medicamentos_atuais">5. Você está atualmente tomando algum medicamento? Se sim, quais?</label>
+                <textarea id="medicamentos_atuais" name="medicamentos_atuais" rows="3" class="form-control" placeholder="Descreva seus medicamentos atuais"></textarea>
+            </div>
+            <div class="form-group mt-4">
+                <label for="habitos">6. Você fuma ou consome álcool?</label><br>
+                <label><input type="radio" name="habitos" value="fuma"> Fuma</label><br>
+                <label><input type="radio" name="habitos" value="bebe"> Consome Álcool</label><br>
+                <label><input type="radio" name="habitos" value="nao"> Não</label>
+            </div>
+            <div class="form-group mt-4">
+                <label for="atividade_fisica">7. Como é a sua rotina de atividade física? Você pratica exercícios regularmente?</label><br>
+                <label><input type="radio" name="atividade_fisica" value="sim"> Sim (de 1 a 7 vezes por semana)</label><br>
+                <label><input type="radio" name="atividade_fisica" value="nao"> Não</label>
+            </div>
+            <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <button onclick="window.location.href='index.html'" class="btn btn-info">Voltar</button>
-        </div>
-        <br><a href="Login_Med.html" class="d-flex justify-content-center link">Já tenho uma conta</a>
-    </form>
-</div>
+        </form>
+    </div>
+</main>
 
-<footer>
-    <div class="footer">
-        <div class="row g-0 text-center">
-            <div class="col-6 col-md-4 p-2">
-                <h5>Seja Nosso cliente</h5>
-                <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
-            </div>
-            <div class="col-6 col-md-4 p-2">
-                <h5>Fale com a gente</h5>
-                <p>Enviar Mensagem</p>
-                <p>Suporte (31) 9 9999-9999</p>
-                <p>Reclame aqui</p>
-            </div>
-            <div class="col-6 col-md-4 p-2">
-                <h5>Criadores</h5>
-                <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
-            </div>
-        </div>
+<footer class="fixed-bottom text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="Login_Pac.html">Login</a>
     </div>
 </footer>
 
-<script>
-function mostrarCampoOutro(selectElement, campoOutroId) {
-    var campoOutro = document.getElementById(campoOutroId);
-    if (selectElement.value === 'outra') {
-        campoOutro.style.display = 'block';
-    } else {
-        campoOutro.style.display = 'none';
-    }
-}
-
-function armazenaDadosPac() {
-    var nome = document.getElementById('nome').value;
-    var telefone = document.getElementById('telefone').value;
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('senha').value;
-    var dataNascimento = document.getElementById('data_nascimento').value;
-    var historicoFamiliar = document.getElementById('historico_familiar').value;
-    var outraDoenca = document.getElementById('outra_doenca').value;
-    var condicaoAtual = document.getElementById('condicao_atual').value;
-    var outraCondicao = document.getElementById('outra_condicao').value;
-    var doencaPassada = document.getElementById('doenca_passada').value;
-    var outraDoencaPassada = document.getElementById('outra_doenca_passada').value;
-    var historicoAlergias = document.getElementById('historico_alergias').value;
-    var medicamentosAtuais = document.getElementById('medicamentos_atuais').value;
-    var habitos = document.querySelector('input[name="habitos"]:checked').value;
-    var atividadeFisica = document.querySelector('input[name="atividade_fisica"]:checked').value;
-    var restricaoAlimentar = document.getElementById('restricao_alimentar').value;
-    var preocupacoes = document.getElementById('preocupacoes').value;
-
-    var paciente = {
-        nome: nome,
-        telefone: telefone,
-        email: email,
-        senha: senha,
-        dataNascimento: dataNascimento,
-        historicoFamiliar: historicoFamiliar,
-        outraDoenca: outraDoenca,
-        condicaoAtual: condicaoAtual,
-        outraCondicao: outraCondicao,
-        doencaPassada: doencaPassada,
-        outraDoencaPassada: outraDoencaPassada,
-        historicoAlergias: historicoAlergias,
-        medicamentosAtuais: medicamentosAtuais,
-        habitos: habitos,
-        atividadeFisica: atividadeFisica,
-        restricaoAlimentar: restricaoAlimentar,
-        preocupacoes: preocupacoes
-    };
-
-    localStorage.setItem('paciente', JSON.stringify(paciente));
-}
-
-</script>
-
+<script src="assets/js/cadastro_paciente.js"></script>
 </body>
 </html>

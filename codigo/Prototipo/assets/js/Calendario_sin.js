@@ -12,34 +12,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function GetDaysCalendar(mes, ano) {
         document.getElementById('mes').innerHTML = monthBR[mes];
         document.getElementById('ano').innerHTML = ano;
-
-        let firstDayOfWeek = new Date(ano, mes, 0).getDay() - 1;
+    
+        let firstDayOfWeek = new Date(ano, mes, 1).getDay(); // Correção: Começar a partir do dia 1 do mês
         let getLastDayThisMonth = new Date(ano, mes + 1, 0).getDate();
-
-        for (let i = -firstDayOfWeek, index = 0; i < (42 - firstDayOfWeek); i++, index++) {
+    
+        for (let i = 1 - firstDayOfWeek, index = 0; i <= (42 - firstDayOfWeek); i++, index++) {
             let dt = new Date(ano, mes, i);
             let dtNow = new Date();
             let dayTable = tableDays.getElementsByTagName('td')[index];
             dayTable.classList.remove('mes-anterior', 'proximo-mes', 'dia-atual', 'event');
             dayTable.innerHTML = dt.getDate();
-
-            if (dt.getFullYear() == dtNow.getFullYear() &&
-                dt.getMonth() == dtNow.getMonth() &&
-                dt.getDate() == dtNow.getDate()) {
+    
+            if (dt.getFullYear() === dtNow.getFullYear() &&
+                dt.getMonth() === dtNow.getMonth() &&
+                dt.getDate() === dtNow.getDate()) {
                 dayTable.classList.add('dia-atual');
             }
-
-            if (i < 1) {
+    
+            if (dt.getMonth() < mes) {
                 dayTable.classList.add('mes-anterior');
             }
-            if (i > getLastDayThisMonth) {
+            if (dt.getMonth() > mes) {
                 dayTable.classList.add('proximo-mes');
             }
-
+    
             dayTable.onclick = function() {
                 openModal(dt);
             };
-
+    
             events.forEach(event => {
                 if (new Date(event.date).toDateString() === dt.toDateString()) {
                     dayTable.classList.add('event');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-    }
+    }    
 
 // Funcionalidade de abrir um span na tela para cadastrar o sintoma
     function openModal(date) {

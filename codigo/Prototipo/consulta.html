@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento de Consultas</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/consulta.css">
-    <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
-    
-    
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Agendamento de Consultas - Santé</title>
 </head>
-
 <body>
-
     <header>
         <div class="header">
             <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
@@ -22,45 +16,43 @@
                 <a href="#home">Meu Caso</a>
                 <a href="#contact">Quem Somos</a>
             </div>
+        </div>
     </header>
 
-    <main class="main-container">
-        <div class="site border border-dark rounded consulta-container">
-            <h1>Marcar sua consulta</h1>
-            <div class="mt-2">
-                <label for="nome-paciente">Digite o nome do paciente:</label>
-                <input type="text" id="nome-paciente" placeholder="Ex: João da Silva">
-            </div>
-            <div class="mt-2">
-                <label for="moedaOrigem">Especialidade do médico</label>
-                <select id="especialidades">
-                    <option selected hidden>Escolha uma especialidade</option>
-                </select>
-            </div>
-            <div class="mt-2">
-                <label for="horarios">Horários para consulta</label>
-                <select name="" id="data-consulta">
-                    <option selected hidden>Escolha uma data</option>
-                </select>
-            </div>
-            <div class="mt-2">
-                <label for="horarios">Horários para consulta</label>
-                <select name="" id="horario-consulta">
-                    <option selected hidden>Escolha um horário</option>
-                </select>
-            </div>
-            <button onclick="converter()" class="btn btn-primary mt-2">Converter</button>
-            <div id="resultado"></div>
+    <main class="container shadow p-3 mb-5 bg-body-tertiary rounded consulta-container">
+        <h1>Marcar sua consulta</h1>
+        <div class="mt-2">
+            <label for="nome-paciente">Digite o nome do paciente:</label>
+            <input type="text" class="form-control" id="nome-paciente" placeholder="Ex: João da Silva">
         </div>
+        <div class="mt-2">
+            <label for="moedaOrigem">Especialidade do médico</label>
+            <select id="especialidades" class="form-control">
+                <option selected hidden>Escolha uma especialidade</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <label for="horarios">Horários para consulta</label>
+            <select id="data-consulta" class="form-control">
+                <option selected hidden>Escolha uma data</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <label for="horarios">Horários para consulta</label>
+            <select id="horario-consulta" class="form-control">
+                <option selected hidden>Escolha um horário</option>
+            </select>
+        </div>
+        <button onclick="converter()" class="btn btn-primary mt-2">Converter</button>
+        <div id="resultado"></div>
     </main>
 
     <footer>
         <div class="footer">
             <div class="row g-0 text-center">
-
                 <div class="col-6 col-md-4 p-2">
                     <h5>Seja Nosso cliente</h5>
-                    <p>Cadastre-se</p>
+                    <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
                 </div>
                 <div class="col-6 col-md-4 p-2">
                     <h5>Fale com a gente</h5>
@@ -70,14 +62,16 @@
                 </div>
                 <div class="col-6 col-md-4 p-2">
                     <h5>Criadores</h5>
-                    <p>Equipe de Diw G7 - Puc Minas Coração Eucaristico </p>
+                    <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="assets/js/santelib.js"></script>
     <script src="assets/js/consulta.js"></script>
 </body>
-
 </html>

@@ -3,47 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Histórico de Saúde do Paciente</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/img/Saude2.png">
+  <title>SANTÉ - Histórico de Saúde</title>
 </head>
 <body>
-  <!--MARCAR ATENDIMENTO-->
-  <header> <h1> SANTÉ</h1>
-
-  <h2>Histórico de Saúde do Paciente</h2>
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+      <div class="header-right">
+        <a href="#home">Meu Caso</a>
+        <a href="#contact">Quem Somos</a>
+      </div>
+    </div>
   </header>
-  <hr>
-  <div id="healthRecords">
-    <h3>Registros de Saúde</h3>
-    <ul id="recordsList"></ul>
-  </div>
- 
-  <div id="addRecordForm">
-    <h3>Adicionar Novo Registro</h3>
-    <form id="recordForm">
-      <label for="date">Data:</label>
-      <input type="date" id="date" name="date" required>    
-      <label for="time">Horário:</label>
-      <input type="time" id="time" name="time" required>    
-      <label for="bloodPressure">Pressão Arterial:</label>
-      <input type="text" id="bloodPressure" name="bloodPressure" placeholder="Ex: 120/80" required>
-      <label for="glucose">Glicose (mg/dL):</label>
-      <input type="number" id="glucose" name="glucose" required>
-      <label for="weight">Peso (kg):</label>
-      <input type="number" id="weight" name="weight" step="0.1" required>
-      <button type="submit">Adicionar Registro</button>
-    </form>
-  </div>
-  <hr>
+  
+  <main class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h2 class="text-center">Histórico de Saúde do Paciente</h2>
+    <hr>
+    <div id="healthRecords">
+      <h3>Registros de Saúde</h3>
+      <ul id="recordsList"></ul>
+    </div>
+    <div id="addRecordForm">
+      <h3>Adicionar Novo Registro</h3>
+      <form id="recordForm">
+        <div class="form-group">
+          <label for="date">Data:</label>
+          <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Horário:</label>
+          <input type="time" class="form-control" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+          <label for="bloodPressure">Pressão Arterial:</label>
+          <input type="text" class="form-control" id="bloodPressure" name="bloodPressure" placeholder="Ex: 120/80" required>
+        </div>
+        <div class="form-group">
+          <label for="glucose">Glicose (mg/dL):</label>
+          <input type="number" class="form-control" id="glucose" name="glucose" required>
+        </div>
+        <div class="form-group">
+          <label for="weight">Peso (kg):</label>
+          <input type="number" class="form-control" id="weight" name="weight" step="0.1" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar Registro</button>
+      </form>
+    </div>
+  </main>
+
   <footer>
-
-    
-
-    <p>© 2024 SANTÉ. Todos os direitos reservados.</p>
-    <p> Criadores - Equipe de Diw G7 - Puc Minas Coração Eucarístico</p>
-    
+    <div class="footer">
+      <div class="row g-0 text-center">
+        <div class="col-6 col-md-4 p-2">
+          <h5>Seja Nosso cliente</h5>
+          <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Fale com a gente</h5>
+          <p>Enviar Mensagem</p>
+          <p>Suporte (31) 9 9999-9999</p>
+          <p>Reclame aqui</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Criadores</h5>
+          <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

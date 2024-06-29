@@ -3,53 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SANTÉ</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="http://127.0.0.1:5500/assets/img/Saude2.png">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/img/Saude2.png">
+  <title>SANTÉ - Lembrete de Atividades</title>
 </head>
 <body>
-  <div class="container">
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+      <div class="header-right">
+        <a href="#home">Meu Caso</a>
+        <a href="#contact">Quem Somos</a>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container shadow p-3 mb-5 bg-body-tertiary rounded">
     <h2>Lembrete Medicamentos</h2>
     <form id="reminderForm">
-      <label for="activity">Atividades:</label>
-      <input type="text" id="activity" name="activity" required>
-
-      <label for="time">Horário:</label>
-      <input type="time" id="time" name="time" required>
-
-      <button type="submit">Adicionar Lembrete</button>
-    </form>
-
-    <div id="medicineList">
-    <hr> 
-      <h3>Lembrete de Consultas</h3>
-      <form id="medicineForm">
-        <label for="medicine">Medicamentos:</label>
-        <input type="text" id="medicine" name="medicine" required>
-
+      <div class="form-group">
+        <label for="activity">Atividades:</label>
+        <input type="text" class="form-control" id="activity" name="activity" required>
+      </div>
+      <div class="form-group">
         <label for="time">Horário:</label>
-        <input type="time" id="time" name="time" required>
-
+        <input type="time" class="form-control" id="time" name="time" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Adicionar Lembrete</button>
+    </form>
+    <hr> 
+    <h3>Lembrete de Consultas</h3>
+    <form id="medicineForm">
+      <div class="form-group">
+        <label for="medicine">Medicamentos:</label>
+        <input type="text" class="form-control" id="medicine" name="medicine" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Horário:</label>
+        <input type="time" class="form-control" id="time" name="time" required>
+      </div>
+      <div class="form-group">
         <label for="date">Data:</label>
-        <input type="date" id="date" name="date" required>
-
-        <button type="button" id="addMedicine">Adicionar Medicamento</button>
-      </form>
-      </ul>
-    </div>
-
-    <div id="reminderList">
-      
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <button type="button" id="addMedicine" class="btn btn-primary">Adicionar Medicamento</button>
+    </form>
     <hr>
-      <h3>Lembretes</h3>
-      <ul id="activityReminders">
-        <!-- Lista de lembretes de atividades será adicionada aqui -->
-      <ul id="medicineReminders">
-          <!-- Lista de lembretes de medicamentos será adicionada aqui -->
-      </ul>
-    </div>
-  </div>
+    <h3>Lembretes</h3>
+    <ul id="activityReminders">
+      <!-- Lista de lembretes de atividades será adicionada aqui -->
+    </ul>
+    <ul id="medicineReminders">
+      <!-- Lista de lembretes de medicamentos será adicionada aqui -->
+    </ul>
+  </main>
 
-  <script src="script.js"></script> <!-- Adicionando o script JavaScript -->
+  <footer>
+    <div class="footer">
+      <div class="row g-0 text-center">
+        <div class="col-6 col-md-4 p-2">
+          <h5>Seja Nosso cliente</h5>
+          <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Fale com a gente</h5>
+          <p>Enviar Mensagem</p>
+          <p>Suporte (31) 9 9999-9999</p>
+          <p>Reclame aqui</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Criadores</h5>
+          <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

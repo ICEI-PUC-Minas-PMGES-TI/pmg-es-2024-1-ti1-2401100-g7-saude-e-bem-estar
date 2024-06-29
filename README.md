@@ -6,8 +6,6 @@ Há muitas pessoas que, por várias razões, negligenciam sua saúde e bem-estar
 * Matheus Dias
 * Julia Rocha
 * Lucas Silva
-* Eduardo Maia
-* Cleverson Resende
 
 ## Professores responsáveis
 

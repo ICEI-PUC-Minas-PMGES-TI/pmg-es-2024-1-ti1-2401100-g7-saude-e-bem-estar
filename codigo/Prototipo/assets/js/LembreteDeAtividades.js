@@ -9,21 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
 
     const activity = activityForm.activity.value;
-    const time = activityForm.time.value; // Substituído 'date' por 'time'
+    const time = activityForm.time.value;
 
-    const li = document.createElement('li');
-    li.textContent = `${activity} - ${time}`; // Substituído 'date' por 'time'
+    if (activity && time) {
+      const li = document.createElement('li');
+      li.textContent = `${activity} - ${time}`;
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Deletar';
-    deleteButton.addEventListener('click', function() {
-      li.remove();
-    });
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Deletar';
+      deleteButton.addEventListener('click', function() {
+        li.remove();
+      });
 
-    li.appendChild(deleteButton);
-    activityList.appendChild(li);
+      li.appendChild(deleteButton);
+      activityList.appendChild(li);
 
-    activityForm.reset();
+      activityForm.reset();
+    }
   });
 
   addMedicineButton.addEventListener('click', function() {
@@ -31,18 +33,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const time = medicineForm.time.value;
     const date = medicineForm.date.value;
 
-    const li = document.createElement('li');
-    li.textContent = `${medicine} - ${time} - ${date}`;
+    if (medicine && time && date) {
+      const li = document.createElement('li');
+      li.textContent = `${medicine} - ${time} - ${date}`;
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Deletar';
-    deleteButton.addEventListener('click', function() {
-      li.remove();
-    });
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Deletar';
+      deleteButton.addEventListener('click', function() {
+        li.remove();
+      });
 
-    li.appendChild(deleteButton);
-    medicineList.appendChild(li);
+      li.appendChild(deleteButton);
+      medicineList.appendChild(li);
 
-    medicineForm.reset();
+      medicineForm.reset();
+    }
   });
 });

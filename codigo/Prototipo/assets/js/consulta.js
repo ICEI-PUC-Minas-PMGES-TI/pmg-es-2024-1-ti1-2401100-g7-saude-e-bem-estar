@@ -1,5 +1,5 @@
 const especialidadesSelect = document.getElementById("especialidades");
-console.log(especialidadesSelect)
+console.log(especialidadesSelect);
 
 let especialidadesJSON = null;
 
@@ -10,9 +10,10 @@ especialidadesJSON
     let especialidades = value.especialidades;
     let tamanho = especialidades.length;
 
-    for (let i = 0; i < tamanho; i++){
+    for (let i = 0; i < tamanho; i++) {
         createCustomOptions(especialidadesSelect, especialidades[i].id, especialidades[i].nome);
     }
 })
-
-//codar pra buscar por ID
+.catch((error) => {
+    console.error("Erro ao carregar especialidades:", error);
+});

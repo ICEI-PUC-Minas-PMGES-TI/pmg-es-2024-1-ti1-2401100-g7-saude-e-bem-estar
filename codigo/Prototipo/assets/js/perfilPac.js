@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const fillProfile = () => {
     const storedData = getStoredData(); // Recupera os dados armazenados
 
-    if (storedData.length > 0) {
+    if (Array.isArray(storedData) && storedData.length > 0) {
         const latestData = storedData[storedData.length - 1]; // Pega o último conjunto de dados
 
         // Preenche as informações pessoais
@@ -25,4 +25,3 @@ const fillProfile = () => {
         document.getElementById('consumo-tabaco').textContent = latestData.consumo_tabaco ? 'Sim' : 'Não';
     }
 };
-

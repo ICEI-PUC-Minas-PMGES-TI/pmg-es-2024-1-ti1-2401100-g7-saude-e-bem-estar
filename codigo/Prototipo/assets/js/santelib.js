@@ -1,40 +1,38 @@
-class Medico{
+class Medico {
     #id = 0;
     #especialidade = "";
     #nome = "";
 
-    //isso é feio, não necessário
-    //mas mais feio ainda é não funcionar :)
-    constructor(id, especialidade){
+    constructor(id, especialidade) {
         this.#id = id;
         this.#especialidade = especialidade;
     }
 
-    setEspecialidade(especialidade){
+    setEspecialidade(especialidade) {
         this.#especialidade = especialidade;
     }
 
-    setId(id){
+    setId(id) {
         this.#id = id;
     }
 
-    setNome(nome){
+    setNome(nome) {
         this.#nome = nome;
     }
 
-    getEspecialidade(){
+    getEspecialidade() {
         return this.#especialidade;
     }
 
-    getId(){
+    getId() {
         return this.#id;
     }
 
-    getNome(){
+    getNome() {
         return this.#nome;
     }
 
-    resetAllAttrs(){
+    resetAllAttrs() {
         this.#id = 0;
         this.#especialidade = "";
     }
@@ -46,21 +44,23 @@ class Medico{
             "especialidade": this.getEspecialidade()
         };
         
-        return JSON.stringify(attrs)
+        return JSON.stringify(attrs);
     }
 }
 
-async function getEspecialidades(url){
-    const resultado = await fetch(url)
-    .catch((error) => console.error(error))
-
-    return resultado.json()
+async function getEspecialidades(url) {
+    try {
+        const resultado = await fetch(url);
+        if (!resultado.ok) throw new Error("Erro ao buscar especialidades");
+        return resultado.json();
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function createCustomOptions(select, value, desc){
+function createCustomOptions(select, value, desc) {
     const customOption = document.createElement("option");
     customOption.value = value;
     customOption.text = desc;
-
     select.append(customOption);
 }

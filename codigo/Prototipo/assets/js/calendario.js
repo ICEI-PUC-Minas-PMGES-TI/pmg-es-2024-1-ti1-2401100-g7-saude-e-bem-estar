@@ -1,40 +1,40 @@
-const medicos = JSON.parse(localStorage.getItem("departamentos")) || [];
-const medicosSelect = document.getElementById("medicos");
-const regHorario = new RegExp("([0-1]?[0-9]|2[0-3]):[0-5][0-9]");
-const botaoAvancar = document.getElementById("botao-avancar");
-let medicoSelecionado = new Medico(0, "");
-let key = null;
+document.addEventListener('DOMContentLoaded', function() {
+    const medicos = JSON.parse(localStorage.getItem("departamentos")) || [];
+    const medicosSelect = document.getElementById("medicos");
+    const regHorario = new RegExp("([0-1]?[0-9]|2[0-3]):[0-5][0-9]");
+    const botaoAvancar = document.getElementById("botao-avancar");
+    let medicoSelecionado = new Medico(0, "");
 
-if (medicosSelect) {
-    for (let i = 0; i < medicos.length; i++) {
-        createCustomOptions(medicosSelect, medicos[i].id, medicos[i].nome);
-    }
+    medicos.forEach(medico => {
+        createCustomOptions(medicosSelect, medico.id, medico.nome);
+    });
 
     medicosSelect.addEventListener("change", () => {
-        let index = medicosSelect.selectedIndex;
-        medicoSelecionado.resetAllAttrs();
-        medicoSelecionado.setId(medicosSelect[index].value);
-        medicoSelecionado.setNome(medicosSelect[index].text);
-        medicoSelecionado.setEspecialidade(medicos[index-1].especialidade);
+        const selectedMedico = medicos.find(medico => medico.id == medicosSelect.value);
+        if (selectedMedico) {
+            medicoSelecionado.setId(selectedMedico.id);
+            medicoSelecionado.setNome(selectedMedico.nome);
+            medicoSelecionado.setEspecialidade(selectedMedico.especialidade);
+        }
     });
 
     botaoAvancar.addEventListener("click", () => {
-        key = medicoSelecionado.getNome().replace(" ", "");
+        const dataConsulta = document.getElementById("data-consulta").value;
+        const horario = document.getElementById("horario").value;
 
-        if (!localStorage.getItem(key)) {
-            let localStorageObj = {
+        if (regHorario.test(horario) && dataConsulta) {
+            let key = medicoSelecionado.getNome().replace(" ", "");
+            let localStorageObj = JSON.parse(localStorage.getItem(key)) || {
                 medico: medicoSelecionado.getStringfyAttrs(),
-                datas: [document.getElementById("data-consulta").value],
-                horarios: [document.getElementById("horario").value]
+                datas: [],
+                horarios: []
             };
-
+            
+            localStorageObj.datas.push(dataConsulta);
+            localStorageObj.horarios.push(horario);
             localStorage.setItem(key, JSON.stringify(localStorageObj));
-            key = null;
-            return;
+        } else {
+            alert("Data ou horário inválidos!");
         }
-
-        // Implementar edição de dados no localStorage
-
-        key = null;
     });
-}
+});

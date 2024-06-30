@@ -3,6 +3,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /*Fim formatação body*/
 
@@ -100,12 +108,13 @@ body {
 
 /*Inicio footer*/
 .footer {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  background-color: #3685F5;
-  color: white;
-  bottom: 0;
-  padding: 20px 0;
+  background-color: #3685F5; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+}
+main {
+  flex: 1;
 }
 
 .footer .row {

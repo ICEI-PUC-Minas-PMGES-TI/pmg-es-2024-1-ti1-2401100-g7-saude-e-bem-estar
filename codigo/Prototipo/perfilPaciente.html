@@ -12,24 +12,22 @@
   <!-- Cabeçalho do site -->
   <header>
     <div class="header">
-      <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
-      <div class="header-right">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="TelaPrincipal_Pac.html">Santé</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cadastro_paciente.html">Cadastrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfilPaciente.html">Perfil</a>
-                    </li>
+        <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+        <div class="header-right">
+            <div class="dropdown header-right">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                </a> 
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="Perfil_Med.html">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                    <li><a class="dropdown-item" id="sair" href="index.html">Sair</a></li>
                 </ul>
             </div>
-        </nav>
-      </div>
+        </div>
     </div>
-  </header>
+</header>
+
     
   <main class="container mt-5">
     <h1>Perfil do Paciente</h1>

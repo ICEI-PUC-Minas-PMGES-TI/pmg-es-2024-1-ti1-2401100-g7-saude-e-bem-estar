@@ -14,8 +14,6 @@ A Engenharia de Software é uma tecnologia que, se usada de forma correta, é ca
 Os membros do grupo são: 
 - Matheus Dias
 - Lucas Silva
-- Eduardo Maia
-- Cleverson Resende
 - Julia Rocha
 
 

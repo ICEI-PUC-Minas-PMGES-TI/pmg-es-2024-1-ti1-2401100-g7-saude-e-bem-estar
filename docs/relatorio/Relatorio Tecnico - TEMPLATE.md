@@ -318,7 +318,6 @@ Revisão do Sprint: Uma reunião realizada no final de cada Sprint para revisar 
 
 - Matheus Dias (Criação do Figma + preenchimento Miro)
 - Lucas Silva (Criação do Figma + preenchimento Miro)
-- Eduardo Maia (Preenchimento Miro)
 - Julia Rocha (Divisão de papéis + Criação do Figma + preenchimento Miro)
 
 

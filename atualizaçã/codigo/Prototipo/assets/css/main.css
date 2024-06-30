@@ -1,4 +1,4 @@
-/*Inicio formatação body*/
+/* Estilização do Body */
 body { 
   margin: 0;
   padding: 0;
@@ -7,29 +7,29 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/*Fim formatação body*/
 
-/*Inicio formatação do header*/
+/* Estilização do Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #3685F5;
   padding: 20px 10px;
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 .header a {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;  
+  font-size: 18px;
+  line-height: 25px;
   border-radius: 4px;
   color: white;
 }
@@ -48,6 +48,7 @@ body {
   align-items: center;
 }
 
+/* Estilização Responsiva do Header */
 @media screen and (max-width: 500px) {
   .header {
     flex-direction: column;
@@ -70,34 +71,30 @@ body {
     margin: 5px 0;
   }
 }
-/* Fim formatação do header*/
 
-/*Inicio botão inscrição*/
+/* Estilização do Botão de Inscrição */
 .btn-azul {
   background-color: #3649F5;
   text-align: center;
   padding: 10px;
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 18px;
   border-radius: 6px;
   border: none;
-  color: rgb(255, 255, 255);
+  color: #fff;
   margin: 5px;
 }
 
 .btn-azul:hover {
   background-color: #2F40D8;
 }
-/*Fim botão inscrição*/
 
+/* Estilização da Imagem de Saúde */
 .img-saude {
   width: 35px;
 }
 
-.cards {
-  background-color: #abceff;
-}
-
+/* Estilização dos Links */
 .link {
   color: #3077DA;
 }
@@ -106,13 +103,14 @@ body {
   color: #3685F5;
 }
 
-/*Inicio footer*/
+/* Estilização do Footer */
 .footer {
-  background-color: #3685F5; /* Cor de fundo */
-  color: white; /* Cor do texto */
-  text-align: center; /* Centraliza o texto */
-  padding: 20px; /* Espaçamento interno */
+  background-color: #3685F5;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
+
 main {
   flex: 1;
 }
@@ -128,6 +126,7 @@ main {
   max-width: 50%;
 }
 
+/* Estilização Responsiva do Footer */
 @media screen and (max-width: 768px) {
   .footer .col-6 {
     flex: 1 1 100%;
@@ -141,9 +140,8 @@ main {
     padding: 10px 0;
   }
 }
-/*Fim footer*/
 
-/* Inicio formatação seção de escolha */
+/* Estilização da Seção de Escolha */
 #sectionTelaEscolha {
   display: flex;
   flex-direction: column;
@@ -174,18 +172,17 @@ main {
   cursor: pointer;
   text-align: center;
   color: white;
-  flex: 1 1 200px; /* Responsivo: 1fr menos o gap */
+  flex: 1 1 200px;
   max-width: 200px;
-  height: 150px; /* Ajuste a altura conforme necessário */
+  height: 150px;
   box-sizing: border-box;
 }
 
 .cardTelaEscolha h2 {
-  margin: 0; /* Remove margens do h2 */
-  font-size: 1.2em; /* Ajuste o tamanho da fonte conforme necessário */
+  margin: 0;
+  font-size: 1.2em;
 }
 
 .cardTelaEscolha:hover {
   background-color: #3077DA;
 }
-/* Fim formatação seção de escolha */

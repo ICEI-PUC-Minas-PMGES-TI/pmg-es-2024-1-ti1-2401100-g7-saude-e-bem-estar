@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Santé - Calendário</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+            <div class="header-right">
+                <div class="dropdown header-right">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                    </a> 
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Configurações</a></li>
+                        <li><a class="dropdown-item" id="sair" href="index.html">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container border border-dark p-5 rounded mt-2 d-flex flex-column justify-content-center align-items-center">
+        <h1>Reservar um horário para atendimentos</h1>
+        <div class="mt-2">
+            <label for="nome-paciente">Digite o nome do médico</label>
+            <select class="form-control" id="medicos">
+                <option selected hidden>Escolha um médico</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <label for="horarios">Horários para consulta</label>
+            <input type="text" class="form-control" id="horario" placeholder="Ex: 13:30">
+        </div>
+        <div class="mt-2">
+            <label for="horarios">Data para consulta</label>
+            <input type="date" class="form-control" id="data-consulta">
+        </div>
+        <button id="botao-avancar" class="btn btn-primary mt-2">Converter</button>
+        <div id="resultado"></div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="row g-0 text-center">
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Seja Nosso cliente</h5>
+                    <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Fale com a gente</h5>
+                    <p>Enviar Mensagem</p>
+                    <p>Suporte (31) 9 9999-9999</p>
+                    <p>Reclame aqui</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Criadores</h5>
+                    <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/santelib.js"></script>
+    <script src="assets/js/calendario.js"></script>
+</body>
+</html>

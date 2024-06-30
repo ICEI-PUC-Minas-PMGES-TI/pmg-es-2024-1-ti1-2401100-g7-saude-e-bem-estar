@@ -1,0 +1,191 @@
+/*Inicio formatação body*/
+body { 
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Fim formatação body*/
+
+/*Inicio formatação do header*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3685F5;
+  padding: 20px 10px;
+  color: rgb(255, 255, 255);
+}
+
+.header a {
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;  
+  border-radius: 4px;
+  color: white;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background: #3077DA;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header-right {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .header a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-azul {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
+/* Fim formatação do header*/
+
+/*Inicio botão inscrição*/
+.btn-azul {
+  background-color: #3649F5;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 18px; 
+  border-radius: 6px;
+  border: none;
+  color: rgb(255, 255, 255);
+  margin: 5px;
+}
+
+.btn-azul:hover {
+  background-color: #2F40D8;
+}
+/*Fim botão inscrição*/
+
+.img-saude {
+  width: 35px;
+}
+
+.cards {
+  background-color: #abceff;
+}
+
+.link {
+  color: #3077DA;
+}
+
+.link:hover {
+  color: #3685F5;
+}
+
+/*Inicio footer*/
+.footer {
+  background-color: #3685F5; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+}
+main {
+  flex: 1;
+}
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer .col-6 {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .footer .col-6 {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer .col-6 {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+/*Fim footer*/
+
+/* Inicio formatação seção de escolha */
+#sectionTelaEscolha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.cardTelaEscolha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #3649F5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  flex: 1 1 200px; /* Responsivo: 1fr menos o gap */
+  max-width: 200px;
+  height: 150px; /* Ajuste a altura conforme necessário */
+  box-sizing: border-box;
+}
+
+.cardTelaEscolha h2 {
+  margin: 0; /* Remove margens do h2 */
+  font-size: 1.2em; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.cardTelaEscolha:hover {
+  background-color: #3077DA;
+}
+/* Fim formatação seção de escolha */

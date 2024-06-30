@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/perfil_med.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Tela Principal - Santé</title>
+</head>
+<body>
+    <!--Cabeçalho do site -->
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+            <div class="header-right">
+                <div class="dropdown header-right">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                    </a> 
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="Perfil_Med.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Configurações</a></li>
+                        <li><a class="dropdown-item" id="sair" href="index.html">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--Conteúdo principal do site -->
+    <main>
+        <h1 class="text-center">Bem-vindo à Santé</h1><br>
+        <p class="text-center">Selecione uma das opções abaixo para acessar as diversas funções do sistema:</p>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-4 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body cards">
+                            <h5 class="card-title">Calendário de Consultas</h5>
+                            <p class="card-text">Gerencie suas consultas e eventos</p>
+                            <a href="Calendario_sin.html" class="btn btn-primary">Abrir Calendário</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body cards">
+                            <h5 class="card-title">Histórico de Saúde</h5>
+                            <p class="card-text">Visualize e gerencie o histórico de saúde do paciente</p>
+                            <a href="Histórico.html" class="btn btn-primary">Ver Histórico</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body cards">
+                            <h5 class="card-title">Lembrete de Atividades</h5>
+                            <p class="card-text">Adicione lembretes de atividades e medicamentos</p>
+                            <a href="LembreteDeAtividades.html" class="btn btn-primary">Adicionar Lembrete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+    </main>
+
+    <!--Rodapé do site -->
+    <footer>
+        <div class="footer">
+            <div class="row g-0 text-center">
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Seja Nosso cliente</h5>
+                    <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Fale com a gente</h5>
+                    <p>Enviar Mensagem</p>
+                    <p>Suporte (31) 9 9999-9999</p>
+                    <p>Reclame aqui</p>
+                </div>
+                <div class="col-6 col-md-4 p-2">
+                    <h5>Criadores</h5>
+                    <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

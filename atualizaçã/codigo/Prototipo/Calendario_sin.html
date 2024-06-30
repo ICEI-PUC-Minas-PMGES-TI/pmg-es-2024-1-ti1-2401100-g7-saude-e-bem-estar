@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/Calendario_sin.css" rel="stylesheet">
+    <link href="assets/css/perfil_med.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Santé</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"> Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+            <div class="header-right">
+                <div class="dropdown header-right">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                    </a> 
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Configuração</a></li>
+                      <li><a class="dropdown-item" href="index.html">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="conteudo">
+            <div class ="calendario">
+                <header>
+                <h2 id="mes">Abril</h2>
+                <a class="btn-ant" id="btn-ant"> < </a>
+                <a class="btn-pro" id="btn-prev"> > </a>
+                </header>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Dom</td>
+                            <td>Seg</td>
+                            <td>Ter</td>
+                            <td>Quar</td>
+                            <td>Qui</td>
+                            <td>Sex</td>
+                            <td>Sab</td>
+                        </tr>
+                    </thead>
+                    <tbody id="dias">
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 id="ano" style="text-align: center;">2024</h2>
+
+            <section id="event-list" class="event-list">
+                <h2 style="text-align: center;"> Eventos Salvos</h2>
+                <ul id="event-items"style="text-align: center;"></ul><br>
+            </section>
+
+            
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Adicione um sintoma ou um evento</h2>
+                <form id="eventForm">
+                    <label for="eventDate">Data:</label>
+                    <input type="text" id="eventDate" name="eventDate"  class="form-control" readonly>
+                    <label for="eventTitle">Título:</label>
+                    <input type="text" id="eventTitle" name="eventTitle"  class="form-control" placeholder="Dor de cabeça" required>
+                    <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        </div>
+    </main>
+    
+
+<!--Footer das informações do site
+  <footer>
+    <div class="footer">
+      <div class="row g-0 text-center">
+
+        <div class="col-6 col-md-4 p-2">
+          <h5>Seja Nosso cliente</h5>
+          <a href='Cadastro_Med.html' style="color: white;">Cadastre-se</a>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Fale com a gente</h5>
+          <p>Enviar Mensagem</p>
+          <p>Suporte (31) 9 9999-9999</p>
+          <p>Reclame aqui</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Criadores</h5>
+          <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar"style="color: white;">Equipe de Diw G7 - Puc Minas Coração Eucaristico </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+ -->
+    <script src="./assets/js/Calendario_sin.js"></script>
+</body>
+</html>

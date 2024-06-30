@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Santé - Perfil do Paciente</title>
+</head>
+<body>
+  <!-- Cabeçalho do site -->
+  <header>
+    <div class="header">
+        <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+        <div class="header-right">
+            <div class="dropdown header-right">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                </a> 
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="Perfil_Med.html">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                    <li><a class="dropdown-item" id="sair" href="index.html">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+  <main class="container mt-5">
+    <h1>Perfil do Paciente</h1>
+    <form id="perfilForm">
+        <h2>Informações Pessoais</h2>
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" required>
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="data-nascimento">Data de Nascimento:</label>
+            <input type="date" class="form-control" id="data-nascimento" required>
+        </div>
+        <br>
+        <h2>Histórico Médico</h2>
+        <div class="form-group">
+            <label for="historico-familiar">Histórico Familiar:</label>
+            <input type="text" class="form-control" id="historico-familiar">
+        </div>
+        <div class="form-group">
+            <label for="condicoes-cronicas">Condições Crônicas Atuais:</label>
+            <input type="text" class="form-control" id="condicoes-cronicas">
+        </div>
+        <div class="form-group">
+            <label for="doencas-passadas">Doenças Passadas:</label>
+            <input type="text" class="form-control" id="doencas-passadas">
+        </div>
+        <div class="form-group">
+            <label for="alergias">Histórico de Alergias:</label>
+            <input type="text" class="form-control" id="alergias">
+        </div>
+        <div class="form-group">
+            <label for="medicamentos">Medicamentos Atuais:</label>
+            <input type="text" class="form-control" id="medicamentos">
+        </div>
+        <br>
+        <h2>Estilo de Vida</h2>
+        <div class="form-group">
+            <label>Hábitos de Exercício:</label>
+            <div>
+                <label><input type="radio" name="habitos_exercicio" value="Regular" required> Regular</label>
+                <label><input type="radio" name="habitos_exercicio" value="Ocasional"> Ocasional</label>
+                <label><input type="radio" name="habitos_exercicio" value="Nenhum"> Nenhum</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Consumo de Álcool:</label>
+            <div>
+                <label><input type="radio" name="consumo_alcool" value="Sim" required> Sim</label>
+                <label><input type="radio" name="consumo_alcool" value="Não"> Não</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Consumo de Tabaco:</label>
+            <div>
+                <label><input type="radio" name="consumo_tabaco" value="Sim" required> Sim</label>
+                <label><input type="radio" name="consumo_tabaco" value="Não"> Não</label>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+  </main>
+    
+  <!-- Footer -->
+  <br>
+  <footer>
+    <div class="footer">
+      <div class="row g-0 text-center">
+        <div class="col-6 col-md-4 p-2">
+          <h5>Seja Nosso Cliente</h5>
+          <p>Cadastre-se</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Fale com a Gente</h5>
+          <p>Enviar Mensagem</p>
+          <p>Suporte (31) 9 9999-9999</p>
+          <p>Reclame Aqui</p>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+          <h5>Criadores</h5>
+          <p>Equipe de DIW G7 - PUC Minas Coração Eucarístico</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="assets/js/perfilPac.js"></script>
+</body>
+</html>

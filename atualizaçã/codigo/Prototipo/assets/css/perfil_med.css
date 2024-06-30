@@ -1,0 +1,23 @@
+.fundo {
+  background-color: #3685F5;
+  color: white;
+  width: 100%;
+  z-index: 1;
+}
+
+.img_perfil {
+  margin-right: 50px;
+  width: 20%;
+}
+
+.btn-right {
+  float: right;
+}
+
+.header li a {
+  color: rgb(0, 0, 0);
+}
+
+.header #sair:hover {
+  background: red;
+}

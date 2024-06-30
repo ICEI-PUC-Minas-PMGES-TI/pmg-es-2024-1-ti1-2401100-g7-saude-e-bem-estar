@@ -1,0 +1,45 @@
+{
+    "especialidades":
+    [
+        {
+            "id": 1,
+            "nome":"Clínico geral"
+        },
+        {
+            "id": 2,
+            "nome": "Nefrologista"
+        },
+        {
+            "id": 3,
+            "nome": "Otorringonaringologista"
+        },
+        {
+            "id": 4,
+            "nome": "Oftalmologista"
+        },
+        {
+            "id": 5,
+            "nome": "Psiquiatra"
+        },
+        {
+            "id": 6,
+            "nome": "Pediatra"
+        },
+        {
+            "id": 7,
+            "nome": "Podólogo"
+        },
+        {
+            "id": 8,
+            "nome": "Endocrinologista"
+        },
+        {
+            "id": 9,
+            "nome": "Cardiologista"
+        },
+        {
+            "id": 10,
+            "nome": "Dermatologista"
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="assets/img/Saude2.png">
+    <title>Santé - Cadastro de Paciente</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="logo d-flex align-items-center">
+                Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude">
+            </a>
+            <div class="header-right">
+                <button type="button" onclick="window.location.href='telaEscolha_Cad.html'" class="btn-azul">Cadastrar</button>
+                <button type="button" onclick="window.location.href='telaEscolha_Log.html'" class="btn-azul">Login</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container mt-5">
+        <h1>Cadastro de Paciente</h1>
+        <form id="cadastroForm">
+            <h2>Informações Pessoais</h2>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" id="telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" required>
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="data_nascimento" required>
+            </div><br>
+            
+            <h2>Histórico Médico</h2>
+            <div class="form-group">
+                <label for="historico_familiar">Histórico Familiar:</label>
+                <input type="text" class="form-control" id="historico_familiar">
+            </div>
+            <div class="form-group">
+                <label for="condicao_atual">Condições Crônicas Atuais:</label>
+                <input type="text" class="form-control" id="condicao_atual">
+            </div>
+            <div class="form-group">
+                <label for="doenca_passada">Doenças Passadas:</label>
+                <input type="text" class="form-control" id="doenca_passada">
+            </div>
+            <div class="form-group">
+                <label for="historico_alergias">Histórico de Alergias:</label>
+                <input type="text" class="form-control" id="historico_alergias">
+            </div>
+            <div class="form-group">
+                <label for="medicamentos_atuais">Medicamentos Atuais:</label>
+                <input type="text" class="form-control" id="medicamentos_atuais">
+            </div><br>
+            
+            <h2>Estilo de Vida</h2>
+            <div class="form-group">
+                <label>Hábitos de Exercício:</label>
+                <div>
+                    <label><input type="radio" name="habitos_exercicio" value="Regular" required> Regular</label>
+                    <label><input type="radio" name="habitos_exercicio" value="Ocasional"> Ocasional</label>
+                    <label><input type="radio" name="habitos_exercicio" value="Nenhum"> Nenhum</label>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Consumo de Álcool:</label>
+                <div>
+                    <label><input type="radio" name="consumo_alcool" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="consumo_alcool" value="Não"> Não</label>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Consumo de Tabaco:</label>
+                <div>
+                    <label><input type="radio" name="consumo_tabaco" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="consumo_tabaco" value="Não"> Não</label>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </main>
+    
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="row g-0">
+                <div class="col-12 col-md-4 p-2">
+                    <h5>Seja Nosso Cliente</h5>
+                    <a href="Cadastro_Med.html" style="color: white;">Cadastre-se</a>
+                </div>
+                <div class="col-12 col-md-4 p-2">
+                    <h5>Fale com a Gente</h5>
+                    <p>Enviar Mensagem</p>
+                    <p>Suporte (31) 9 9999-9999</p>
+                    <p>Reclame Aqui</p>
+                </div>
+                <div class="col-12 col-md-4 p-2">
+                    <h5>Criadores</h5>
+                    <a href="https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-1-ti1-2401100-g7-saude-e-bem-estar" style="color: white;">Equipe de DIW G7 - PUC Minas Coração Eucarístico</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/cadastro_paciente.js"></script>
+</body>
+</html>

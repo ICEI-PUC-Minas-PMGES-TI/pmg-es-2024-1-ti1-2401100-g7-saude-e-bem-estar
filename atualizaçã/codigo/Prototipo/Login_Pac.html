@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santé - Login de Paciente</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="icon" href="assets/img/Saude2.png">
+</head>
+<body>
+<header>
+    <div class="header">
+        <a href="index.html" class="logo">Santé <img src="assets/img/Saude2.png" alt="saude" class="img-saude"></a>
+        <div class="header-right">
+            <div class="dropdown header-right">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/img/perfil.png" alt="saude" class="img-saude">
+                </a> 
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                    <li><a class="dropdown-item" id="sair" href="index.html">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <br>
+    <div class="container shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form id="loginForm">
+            <h2 class="d-flex justify-content-center">Login de Paciente</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="matheus@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="******" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</main>
+
+<footer class="fixed-bottom text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="cadastro_paciente.html">Cadastrar</a>
+    </div>
+</footer>
+
+<script src="assets/js/Login_Pac.js"></script>
+</body>
+</html>

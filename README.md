@@ -11,7 +11,7 @@ Há muitas pessoas que, por várias razões, negligenciam sua saúde e bem-estar
 
 * Simone Alves Nogueira
 * Diego Augusto de Faria Barros
-* Daniel Victor Souza Saldanha
+* Danilo Boechat Seufitelli
 
 ## Instruções de utilização
 
